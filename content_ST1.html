@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Climate Action: Deforestation</title>
+  <link rel="stylesheet" href="style1.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7ef, #f0fff4);
+      color: #222;
+      line-height: 1.6;
+      padding-bottom: 60px;
+      margin: 0;
+      position: relative;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      filter: brightness(0.75);
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    header {
+      background-color: #004d2e;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    nav {
+      background-color: #00704a;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #00a36c;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.92);
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    section img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    h2 {
+      color: #00704a;
+      margin-bottom: 0.5rem;
+    }
+
+    .top-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00704a;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .top-link:hover {
+      background-color: #00b67a;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="slideshow">
+    <div class="overlay"></div>
+    <img src="images/student1/treee.jpg" class="active" alt="Climate Image 1">
+    <img src="images/student1/deforest.avif" alt="Climate Image 2">
+    <img src="images/student1/defora.jpeg" alt="Climate Image 3">
+  </div>
+
+  <header>
+    <h1>Climate Action: Deforestation</h1>
+  </header>
+
+  <nav>
+    <a href="#causes">Causes</a>
+    <a href="#effects">Effects</a>
+    <a href="#solutions">Solutions</a>
+  </nav>
+
+  <main>
+    <section id="causes">
+      <h2>Causes of Deforestation</h2>
+      <p>
+        Deforestation is driven by multiple human activities. The main contributors include agriculture (especially cattle ranching and palm oil plantations), illegal logging, urban expansion, and mining.
+        Forests are cleared for crop cultivation, infrastructure, and commercial development, especially in tropical regions like the Amazon and Southeast Asia.
+      </p>
+      <img src="images/student1/R (1).jpeg" alt="Trees cut for agriculture">
+    </section>
+
+    <section id="effects">
+      <h2>Effects of Deforestation</h2>
+      <p>
+        The loss of forests leads to habitat destruction, species extinction, climate imbalance, and increased greenhouse gas emissions.
+        Deforestation contributes to global warming by reducing carbon absorption, and increases the risk of soil erosion, floods, and desertification.
+      </p>
+      <img src="images/student1/lasclaritas_oli_2016271.jpg" alt="Effects of deforestation on animals and environment">
+    </section>
+
+    <section id="solutions">
+      <h2>Solutions to Deforestation</h2>
+      <p>
+        Solutions include reforestation, enforcing anti-logging laws, promoting sustainable agriculture, and supporting eco-friendly products.
+        Consumers can help by reducing meat consumption, avoiding products with unsustainable palm oil, and planting trees locally.
+      </p>
+      <img src="images/student1/Planting-trees.jpg" alt="Tree planting and conservation efforts">
+    </section>
+  </main>
+
+  <a href="#top" class="top-link">↑ Top</a>
+
+  <script>
+    const slides = document.querySelectorAll(".slideshow img");
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 3500);
+  </script>
+</body>
+</html>

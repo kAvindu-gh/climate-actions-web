@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Table</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+      
+      body {
+        background-image: url("images/student2/table.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .table-wrapper {
+        padding: 100px;
+        text-align: center;
+      }
+
+      .table-heading {
+        font-size: 2.5rem;
+        color: #ffffff;
+        margin-bottom: 20px;
+        background-color: #047857;
+      }
+
+      .table-header{
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      /* Climate Table */
+      .climate-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: transparent;
+        box-shadow: 0 6px 25px rgba(13, 67, 31, 0.1);
+        border-radius: 20px;
+        overflow: hidden;
+        font-family: 'comic sans ms';
+      }
+
+      /* Table headers */
+      .climate-table th {
+        background-color: #297443 ;
+        color: #ffffff;
+        padding: 12px;
+        font-size: 1rem;
+      }
+
+      /* Zebra rows */
+      .climate-table tr:nth-child(even) {
+        background-color: #ecfdf5;
+      }
+
+      .climate-table tr:nth-child(odd) {
+        background-color: #d1fae5;
+      }
+
+      /* Table cells */
+      .climate-table td {
+        padding: 12px;
+        text-align: center;
+        font-size: 0.95rem;
+        border: 1px solid #ccc;
+      }
+
+      /* Hover effect */
+      .climate-table tbody tr:hover {
+        background-color: #89e9a9;
+        cursor: pointer;
+        transition: 0.4s ease-in-out;
+      }
+
+      /* Link styling */
+      .climate-table a {
+        text-decoration: underline;
+        color: #047857;
+        font-weight: bold;
+      }
+
+      .climate-table a:hover {
+        color: #f15e5e;
+        text-decoration: none ;
+      }
+
+      /* Fade-in animation for the table */
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-content {
+        animation: fadeInDown 1s ease-in-out forwards;
+      }
+
+       
+    </style>
+  </head>
+    
+  <body>
+    <div class="wrapper">
+      <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student2/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <main class="table-wrapper">
+        <div class="page-content">
+          <h2 class="table-heading">GLOBAL EFFORTS ON CLIMATE ACTION</h2>
+          <table class="climate-table" aria-label="Climate action data table across four focus areas">
+            <thead class="table-header">
+              <tr>
+                <th title="Country">
+                  <img src="images/student2/logo.png" alt="Country Icon" width="100"><br>Country
+                </th>
+                <th title="Deforestation Efforts">
+                  <img src="images/student2/deforestration-table-icon.png" alt="Deforestation Icon" width="100"><br>Deforestration
+                </th>
+                <th title="Renewable Energy Usage">
+                  <img src="images/student2/renewable-table-icon.png" alt="Renewable Energy Icon" width="100"><br>Renewable Energy
+                </th>
+                <th title="Sea Level Risk">
+                  <img src="images/student2/sea-level-table-icon.png" alt="Sea Level Rise Icon" width="100"><br>Sea Level Rise
+                </th>
+                <th title="Urban Emissions">
+                  <img src="images/student2/urban-emission-table-icon.png" alt="Urban Emissions Icon" width="100"><br>Urban Emissions
+                </th>
+                <th title="Climate Action Goal">
+                  <img src="images/student2/climate-action-target-table-icon.png" alt="Climate Target Icon" width="100"><br>Climate Target
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>
+                  <img src="images/student2/lk.png" alt="Sri Lanka" title="Sri Lanka" width="50"><br>Sri Lanka</td>
+                <td>Forest Conservation Act 🌱 ✔️</td>
+                <td>53% Hydro & Solar ☀️</td>
+                <td>Island Nation Risk 🔺</td>
+                <td>Moderate Urban CO₂ 🟡</td>
+                <td><a href="https://www.climatechange.lk/">Local Action Plan</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/brazil.png" alt="Brazil" title="Brazil" width="50"><br>Brazil
+                </td>
+                <td>Amazon Reforestation 🌳 ✔️</td>
+                <td>65% Biofuels 🔋 ✔️</td>
+                <td>Medium Risk ⚠️</td>
+                <td>Improving 🚧</td>
+                <td rowspan="2"><a href="pages/content_ST1.html">Reduce Deforestation</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/india.png" alt="India" title="India" width="50"><br>India
+                </td>
+                <td>Tree Plantation Drives 🌱 ✔️</td>
+                <td>40% Solar ☀️ 🌿</td>
+                <td>High Risk 🔺</td>
+                <td>High Pollution ✖️</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/norway.png" alt="Norway" title="Norway" width="50"><br>Norway
+                </td>
+                <td>Stable Forests 🌲 ✔️</td>
+                <td>98% Hydro ⚡ ✔️</td>
+                <td>Low Risk ✅</td>
+                <td>EV Policy Active 🚗 ✔️</td>
+                <td><a href="pages/content_ST2.html">Net-Zero 2050</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/usa.png" alt="USA" title="United States" width="50"><br>USA
+                </td>
+                <td>Monitoring Only 👁️</td>
+                <td>20% Mixed ✖️</td>
+                <td>Medium Risk ⚠️</td>
+                <td>High Urban CO₂ 🔴</td>
+                <td><a href="pages/content_ST3.html">Paris Agreement</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/germany.png" alt="Germany" title="Germany" width="50"><br>Germany
+                </td>
+                <td>Forest Regulation 🌲 ✔️</td>
+                <td>46% Wind & Solar 🌬️ ✔️</td>
+                <td>Low Risk ✅</td>
+                <td>EV Zones in Cities 🟢</td>
+                <td>80% clean by 2030</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/kenya.png" alt="Kenya" title="Kenya" width="50"><br>Kenya
+                </td>
+                <td>Tree Cover Restoration 🌿 ✔️</td>
+                <td>75% Geothermal 🔥 ✔️</td>
+                <td>Low Risk ✅</td>
+                <td>Low Emissions 🟢</td>
+                <td><a href="pages/content_ST4.html">Green Vision 2030</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/iceland.png" alt="Iceland" title="Iceland" width="50"><br>Iceland
+                </td>
+                <td>Natural Stability ❄️</td>
+                <td>100% Hydro & Geo ⚡ ✔️</td>
+                <td>Minimal Risk 🌊</td>
+                <td>Clean Grid 🧊</td>
+                <td>Climate Neutral Leader</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/canada.png" alt="Canada" title="Canada" width="50"><br>Canada
+                </td>
+                <td>Boreal Forest Preservation 🌲 ✔️</td>
+                <td>63% Hydro Power ⚡</td>
+                <td>Melting Glaciers ⚠️</td>
+                <td>Urban Transition Plans 🛠️</td>
+                <td>Carbon Neutral 2050</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="images/student2/newzealand.png" alt="New Zealand" title="New Zealand" width="50"><br>New Zealand
+                </td>
+                <td>Native Forest Recovery 🌳</td>
+                <td>84% Renewables 🔋</td>
+                <td>Coastal Flood Risk 🌊</td>
+                <td>Green Transport 🚉</td>
+                <td>Net-Zero Emissions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <footer aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <!-- Left: About Section -->
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+              <p>
+                Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+              </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <!-- Center: Quick Links -->
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+              <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+          </div>
+          <!-- Right: Page Editors -->
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+            🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

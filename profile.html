@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+    
+    body {
+      background-image: url("https://www.istockphoto.com/resources/images/PhotoFTLP/P4-NOV-iStock-2165931620.jpg");
+      background-position: center;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      background-color: #4A569D;
+      color: #fff;
+      padding: 30px;
+      width: 35%;
+      text-align: center;
+    }
+
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      object-fit: cover;
+    }
+
+    .sidebar h1 {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 14px;
+      margin: 10px 0 20px;
+    }
+
+    .contact-info {
+    margin: 5px 0;
+    font-size: 15px;
+    font-family: Calibri, sans-serif;
+    line-height: 1.6; 
+    letter-spacing: 1.5px; 
+    }
+
+    .skills h2 {
+      text-align: left;
+      font-size: 18px;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+
+    .skill {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .skill-bar {
+      background-color: #fff;
+      height: 10px;
+      border-radius: 5px;
+    }
+
+    .skill-level {
+      background-color: #f39c12;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .main-content {
+      padding: 30px;
+      width: 65%;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      color: #4A569D;
+      margin-bottom: 15px;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section li {
+      margin-bottom: 10px;
+    }
+
+    .un-goals {
+      background-color: #2d1750;
+      padding: 20px;
+      border-radius: 8px;
+      color: #fff9f9;
+    }
+
+    .goal-icons {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .goal-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .goal-icon.red { background-color: #e5243b; }
+    .goal-icon.yellow { background-color: #dda63a; }
+    .goal-icon.green { background-color: #4c9f38; }
+    .goal-icon.blue { background-color: #00689d; }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #4A569D;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #3b467c;
+    }
+
+    .contact-table {
+      max-width: 600px;
+      margin: 20px auto;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .contact-table th,
+    .contact-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .contact-table th {
+      background-color: #f2f2f2;
+    }
+
+    .interest-icons {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .interest-icons img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .interest-icons img:hover {
+      transform: scale(1.1);
+    }
+    .go-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #0b6b0f;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+      z-index: 100;
+    }
+      
+  </style>
+  </head>
+  <body>
+    <div>
+      <video autoplay muted loop playsinline class="background-video">
+        <source src="https://www.istockphoto.com/resources/images/PhotoFTLP/P4-NOV-iStock-2165931620.jpg" type="video/mp4">Your browser does not support the video tag.
+      </video>
+
+      <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student4/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <main>
+            <div class="container">
+       <aside class="sidebar">
+       <div class="profile-pic">
+          <img src="images/student4/image.jpg" alt="Student photo">
+            </div>
+              <h1>Sanidu Harsha</h1>
+              <h3>(Software Engineering Student) </h3>
+
+      <div class="contact-info">
+        <p><strong>Age:</strong> 22 Years old </p>
+        <p><strong>Role:</strong> Undergraduate Student</p>
+        <p><strong>University:</strong> University Of Westminster</p>
+        <p><strong>Address:</strong> 78, Eksath mawatha, Kelaniya</p>
+        <p><strong>Phone:</strong> +94 78 7912 302</p>
+        <p><strong>Email:</strong> saniduharsha2002@gmail.com</p>
+        <p><strong>Date of Birthday:</strong> Oct 07 th 2002</p>
+        <p><strong>Location:</strong> Sri Lanka</p>
+      </div>
+
+      <div class="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+          <p>Communication</p>
+          <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+        </div>
+        <div class="skill">
+          <p>Team working</p>
+          <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill">
+          <p>IT</p>
+          <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+        </div>
+        <div class="skill">
+          <p>Presentation</p>
+          <div class="skill-bar"><div class="skill-level" style="width: 40%;"></div></div>
+        </div>
+        <div class="skill">
+          <p>English</p>
+          <div class="skill-bar"><div class="skill-level" style="width: 45%;"></div></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="section">
+        <h2> Goals</h2>
+        <ul>
+          <li><strong>Goal 1</strong> - Improve my coding skills</li>
+          <li><strong>Goal 2</strong> - Start a tech business</li>
+          <li><strong>Goal 3</strong> - Volunteer more regularly</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2> Frustrations</h2>
+        <ol>
+          <li><strong>Limited local tech events</strong></li>
+          <li><strong>Unstable internet</strong></li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2> Experience</h2>
+        <ol>
+          <li><strong>University Projects</strong></li>
+          <li><strong>Team Lead</strong></li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2> Volunteering Activities</h2>
+        <ul>
+          <li>Tree Planting - Local environment club</li>
+          <li>UN SDG Goals: Clean Water, Climate Action</li>
+        </ul>
+      </section>
+
+      <section class="section un-goals">
+        <h2>UN Goals I Support</h2>
+        <div class="goal-icons">
+          <div class="goal-icon green" title=" Climate Action">⑬</div>
+          <p class = "section">Climate Action</p>
+          
+          
+        </div>
+      </section>
+
+      <section class="section">
+        <h2> Interests</h2>
+        <div class="interest-icons">
+          <img src="https://media.istockphoto.com/id/1181366400/photo/in-the-hands-of-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-on.jpg?s=2048x2048&w=is&k=20&c=cJasnH6-720p10tQl-kxhO7VCNjzbTs5aOhNt2AoVfk=" alt="Tree Planting">
+          <p>
+            <ol><strong>Tree Planting</strong></ol>
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Volunteering Availability</h2>
+        <table class="contact-table">
+          <thead>
+            <tr><th>Day</th><th>Availability</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td>9:00 PM - 5:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>9:00 PM - 5:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>9:00 PM - 5:00 PM</td></tr>
+            <tr><td>Thursday</td><td>9:00 PM - 5:00 PM</td></tr>
+            <tr><td>Friday</td><td>9:00 PM - 5:00 PM</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section contact-form">
+        <h2>Contact Me</h2>
+        <form>
+          <input type="text" placeholder=" Enter Your Name" required>
+          <input type="email" placeholder="Enter Your Email" required>
+          <input type="tel" placeholder="Enter Telephone Number">
+          <textarea rows="4" placeholder="Enter Your Message"></textarea>
+          <button type="submit">Send</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+    </main>
+  </div>
+    <a href="#top" class="go-to-top" aria-label="Go to top">up</a>
+      </main>
+
+      <footer class="wrapper" aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <!-- Left: About Section -->
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+              <p>
+                Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+              </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <!-- Center: Quick Links -->
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+              <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+              </ul>
+          </div>
+          <!-- Right: Page Editors -->
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆  <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+            🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

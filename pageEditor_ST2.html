@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - pageEditor_ST2</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+   
+        :root {
+            --primary: #2e86ab;
+            --secondary: #897558;
+            --accent: #dba61e;
+            --light: #f5f5f5;
+            --dark: #333;
+            --success: #48a14d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0fff0 100%);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .wrapper{
+            margin: 150px;
+
+        }
+
+        .page {
+            background: linear-gradient(to right, var(--primary), #34a0a4);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+  
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: var(--accent);
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Link Styling  */
+        a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #48a14d;
+            color: rgb(24, 3, 3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            margin: 0.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #dba61e;
+            color: rgb(24, 3, 3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .image-card {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .image-caption {
+            padding: 1rem;
+            background: white;
+            text-align: center;
+            font-style: italic;
+            color: var(--dark);
+        }
+
+        /*  List Styling  */
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /*  Responsive Design */
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: linear-gradient(to right, #fff9e6, #fff2cc);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+    </head>
+    <body>
+      <div class="wrapper">
+
+      <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student2/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <section class="page">
+        <div class="container">
+            <h1>Page Editor</h1>
+            <p>A colorful showcase of my contributions to our Climate Action project</p>
+        </div>
+       </section>
+    </div>
+
+    <main class="container">
+        <!-- Content Overview -->
+        <section class="card">
+            <h2>Content Overview</h2>
+            <div class="highlight">
+                <p><strong>Name:</strong> Kavindu Chandupa</p>
+                <p><strong>Role:</strong> Student 2</p>
+            </div>
+            
+            <h3>Completed Tasks/Pages:</h3>
+            <ul>
+                <li><strong>Home Page</strong> - Introduces the Climate Action website</li>
+                <li><strong>Table Page</strong> - Displays climate-related data in an organized format</li>
+                <li><strong>Renewable Energy Content Page</strong> - Detailed information on renewable energy solutions</li>
+            </ul>
+            
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Climate action concept">
+                    <div class="image-caption">Climate Action Home Page Concept</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Data visualization">
+                    <div class="image-caption">Climate Data Table Example</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://media.istockphoto.com/id/1450272068/photo/wind-sun-and-water-energy.webp?a=1&b=1&s=612x612&w=0&k=20&c=YIuMY_oGbKmKIe3c5TCt-Y7gMrw1VA4cQMURfvdlipE=" alt="Renewable energy">
+                    <div class="image-caption">Renewable Energy Solutions</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Description -->
+        <section class="card">
+            <h2>Technical Description</h2>
+            
+            <h3>1. Home Page</h3>
+            <div class="highlight">
+                <p><strong>HTML Techniques:</strong></p>
+                <ul>
+                    <li>Used semantic <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;section&gt;</code> tags</li>
+                    <li>Implemented responsive navigation with flexbox</li>
+                    <li>Added accessible image descriptions with <code>alt</code> attributes</li>
+                </ul>
+                
+                <p><strong>CSS Techniques:</strong></p>
+                <ul>
+                    <li>Created a responsive layout with media queries</li>
+                    <li>Used CSS variables for consistent theming</li>
+                    <li>Added smooth hover transitions for interactive elements</li>
+                </ul>
+            </div>
+            
+            <h3>2. Table Page</h3>
+            <div class="highlight">
+                <p><strong>HTML Techniques:</strong></p>
+                <ul>
+                    <li>Structured data with <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, and <code>&lt;tbody&gt;</code></li>
+                    <li>Added proper table headers with <code>&lt;th&gt;</code> for accessibility</li>
+                    <li>Included table captions for context</li>
+                </ul>
+                
+                <p><strong>CSS Techniques:</strong></p>
+                <ul>
+                    <li>Styled with zebra striping using <code>nth-child()</code></li>
+                    <li>Made tables scrollable on mobile with <code>overflow-x: auto</code></li>
+                    <li>Added subtle hover effects on table rows</li>
+                </ul>
+            </div>
+            
+            <h3>3. Renewable Energy Page</h3>
+            <div class="highlight">
+                <p><strong>HTML Techniques:</strong></p>
+                <ul>
+                    <li>Used semantic <code>&lt;article&gt;</code> and <code>&lt;aside&gt;</code> elements</li>
+                    <li>Implemented a card-based layout for different energy types</li>
+                    <li>Added proper heading hierarchy (<code>&lt;h2&gt;</code> to <code>&lt;h4&gt;</code>)</li>
+                </ul>
+                
+                <p><strong>CSS Techniques:</strong></p>
+                <ul>
+                    <li>Created a responsive grid layout</li>
+                    <li>Added interactive card hover effects</li>
+                    <li>Used CSS animations for visual engagement</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="card">
+            <h2>Links to My Work</h2>
+            <div class="image-gallery">
+                <a href="home.html" class="btn" target="_blank">Home Page</a>
+                <a href="table.html" class="btn" target="_blank">Table Page</a>
+                <a href="content_ST2.html" class="btn" target="_blank">Renewable Energy</a>
+                <a href="validation_ST2.html" class="btn" target="_blank">Validation Report</a>
+            </div>
+            
+            <div class="highlight">
+                <p>All links open in new tabs for your convenience. The validation report shows W3C validation for all my pages.</p>
+            </div>
+        </section>
+
+        <!-- Challenges and Lessons -->
+        <section class="card">
+            <h2>Challenges and Lessons Learned</h2>
+            <div class="highlight">
+                <h3>Challenge: Responsive Table Design</h3>
+                <p>Making the data table readable on mobile devices was difficult due to the amount of data.</p>
+                <p><strong>Solution:</strong> Implemented horizontal scrolling with a sticky header row and added tooltips for truncated data.</p>
+                
+                <h3>Lesson: Semantic HTML Matters</h3>
+                <p>Initially used divs for everything, but learned that proper semantic tags improve accessibility and SEO.</p>
+                
+                <h3>Challenge: Color Contrast</h3>
+                <p>Some color combinations looked nice but failed accessibility contrast checks.</p>
+                <p><strong>Solution:</strong> Used WebAIM's contrast checker to ensure all text meets WCAG AA standards.</p>
+            </div>
+        </section>
+
+        <!-- Accessibility -->
+        <section class="card">
+            <h2>Accessibility Features</h2>
+            <div class="highlight">
+                <ul>
+                    <li>All images have descriptive <code>alt</code> text</li>
+                    <li>Proper heading hierarchy implemented</li>
+                    <li>Sufficient color contrast ratios maintained</li>
+                    <li>Keyboard navigable interface</li>
+                    <li>ARIA labels added where needed</li>
+                </ul>
+            </div>
+            
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Accessibility icon">
+                    <div class="image-caption">Accessibility was a key focus</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance -->
+        <section class="card">
+            <h2>Compliance with Janet Regulations</h2>
+            <div class="highlight">
+                <p>All pages meet Janet's web publishing standards by:</p>
+                <ul>
+                    <li>Providing clear, accurate information</li>
+                    <li>Ensuring all links work correctly</li>
+                    <li>Maintaining accessibility standards</li>
+                    <li>Including proper metadata</li>
+                    <li>Validating all HTML and CSS</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section class="card">
+            <h2>References</h2>
+            <div class="highlight">
+                <ul>
+                    <li>MDN Web Docs. (2023). <em>HTML5 Semantic Elements.</em> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics" target="_blank">https://developer.mozilla.org/en-US/docs/Glossary/Semantics</a></li>
+                    <li>W3Schools. (2023). <em>CSS Grid Layout.</em> <a href="https://www.w3schools.com/css/css_grid.asp" target="_blank">https://www.w3schools.com/css/css_grid.asp</a></li>
+                    <li>WebAIM. (2023). <em>Color Contrast Checker.</em> <a href="https://webaim.org/resources/contrastchecker/" target="_blank">https://webaim.org/resources/contrastchecker/</a></li>
+                    <li>Janet. (2023). <em>Web Publishing Guidelines.</em> <a href="https://www.jisc.ac.uk/website" target="_blank">https://www.jisc.ac.uk/website</a></li>
+                </ul>
+            </div>
+        </section>
+        
+      </main>
+
+      <footer aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <!-- Left: About Section -->
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+            <p>
+              Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+            </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <!-- Center: Quick Links -->
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+          <!-- Right: Page Editors -->
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+            🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

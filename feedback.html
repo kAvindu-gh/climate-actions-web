@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+    body {
+        
+        background-image: url("images/student3/ravi.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .feedback-form {
+        max-width: 600px;
+        margin: 30px auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .feedback-form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea,
+    .feedback-form select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .feedback-form input[type="submit"] {
+        background : white;
+        color: black;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    .feedback-form input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    
+    .feedback-form input:invalid,
+    .feedback-form textarea:invalid,
+    .feedback-form select:invalid {
+        border: 2px solid red;
+        outline: none;
+    }
+
+    .feedback-form input:valid,
+    .feedback-form textarea:valid,
+    .feedback-form select:valid {
+        border: 2px solid green;
+    }
+      
+    fieldset {
+        border: 5px solid black;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background:transparent;
+    }
+
+    legend {
+        font-weight: bold;
+        font-size: 1.3rem;
+        color: rgb(0, 0, 0);
+        padding: 5px;
+    }
+
+
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse; /* So leftmost stars light up first */
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 2rem;
+        cursor: pointer;
+        color: #ccc; /* default grey */
+        transition: color 0.3s;
+    }
+
+    /* Hover effect */
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: gold;
+    }
+
+    /* Clicked/selected stars */
+    .star-rating input:checked ~ label {
+        color: gold;
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 5px;
+    }
+
+    .radio-group label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+      
+    </style>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student3/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      
+    <main>
+        <form class="feedback-form"  method="POST" >
+                <fieldset>
+                <legend >Personal Details</legend>
+
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required title="Please enter your full name." maxlength="50" />
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required title="Please enter a valid email address." />
+
+                <label for="phone">Telephone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required title="Enter a 10-digit phone number." />
+
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" maxlength="150" required title="Address is required." ></textarea>
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday" required><br>
+                </fieldset>
+
+                <fieldset>
+                <legend>Feedback Details</legend>
+
+                <label for="topic">Topic:</label>
+                <select id="topic" name="topic" required>
+                    <option value="">Select a topic</option>
+                    <option value="deforestation">Deforestation</option>
+                    <option value="Sea Level Rise">Sea Level Rise</option>
+                    <option value="Renewable Energy">Renewable Energy </option>
+                    <option value="UrbanEmission">Urban Emission</option>
+                </select>
+        
+                <label for="message">Comment or Message:</label>
+                <textarea id="message" name="message" rows="4" maxlength="200" oninput="updateCharCount()" required></textarea>
+                <div class="char-count" id="charCount">200 characters remaining</div>
+
+
+                <label for="ref">How did you hear about us?</label>
+                <input list="sources" id="ref" name="ref" />
+                <datalist id="sources">
+                    <option value="Website">
+                    <option value="Social Media" >
+                    <option value="Friends">
+                </datalist>
+
+                <label>Would you like to join us?</label>
+                <div class="radio-group">
+                <label><input type="radio" name="volunteer" value="yes" required> Yes</label>
+                <label><input type="radio" name="volunteer" value="no"> No</label>
+                </div>
+
+                <label for="attachment">Upload Attachment (PDF or Image):</label>
+                <input type="file" id="attachment" name="attachment" accept=".pdf, image/*" />
+
+                <label>Rate Our Site:</label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5">&#9734;</label>
+
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4">&#9734;</label>
+
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3">&#9734;</label>
+
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2">&#9734;</label>
+
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1">&#9734;</label>
+                </div>
+
+                </fieldset>
+
+                 <input type="submit" value="Submit Feedback" />
+                </form>
+            </main>
+       
+
+            <footer aria-label="Website Footer">
+            <div class="footer-container-glass">
+            <!-- Left: About Section -->
+            <div class="footer-column left-column">
+                <h3>About Climate Action</h3>
+                <p>
+                Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+                </p>
+                <div class="social-icons">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+                </div>
+            </div>
+            <!-- Center: Quick Links -->
+            <div class="footer-column center-column">
+                <h3>Quick Links</h3>
+                <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <!-- Right: Page Editors -->
+            <div class="footer-column right-column">
+                <h3>Page Editors</h3>
+                <ul>
+                <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+                <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+                <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+                <li>🌆  <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="footer-bottom">
+            <p>
+                ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+                🤝 User-Friendly for Everyone
+            </p>
+            <p class="footer-note">© 2025 Climate Action Initiative</p>
+            </div>
+      </footer>
+  </body>
+</html>

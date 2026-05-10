@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.team-member {
+  width: 250px;
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.team-member:hover,
+.team-member:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.team-member:hover .thumbnail,
+.team-member:focus .thumbnail {
+  opacity: 0.6;
+}
+
+.member-details {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.team-member:hover .member-details,
+.team-member:focus .member-details {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Accessibility focus ring */
+.team-member:focus {
+  box-shadow: 0 0 0 3px #4CAF50;
+}
+
+
+
+    </style>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student3/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" >Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html" class="active">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+
+            <main class="team-container">
+              <!-- Team Member 1 -->
+              <div class="team-member" tabindex="0">
+                <img src="images/student3/60111.jpg" alt="Profile photo of Sanidu" class="thumbnail" />
+                <div class="member-details">
+                  <h2>Vithushan</h2>
+                  <p><strong>Role:</strong> Student 1</p><br>
+                  <p><strong>Contributions:</strong> Splash Screen and Volunteer.</p>
+                </div>
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="team-member" tabindex="0">
+                <img src="images/student3/60111.jpg" alt="Profile photo of Kavindu" class="thumbnail" />
+                <div class="member-details">
+                  <h2>Kavindu Chandupa</h2>
+                  <p><strong>Role:</strong> Student 2</p><br>
+                  <p><strong>Contributions:</strong>Website Style (Template - Global CSS),Home page ,Table.</p>
+                </div>
+              </div>
+
+              <!-- Team Member 3 -->
+              <div class="team-member" tabindex="0">
+                <img src="images/student3/60111.jpg" alt="Profile photo of Nisal" class="thumbnail" />
+                <div class="member-details">
+                  <h2>Ravindu Nisal</h2>
+                  <p><strong>Role:</strong>Student 3</p><br>
+                  <p><strong>Contributions:</strong> Feedback and Team .</p>
+                </div>
+              </div>
+           
+              <!-- Team Member 4 -->
+              <div class="team-member" tabindex="0">
+                <img src="images/student3/60111.jpg" alt="Profile photo of Vidushan" class="thumbnail" />
+                <div class="member-details">
+                  <h2>Sanidu Harsha</h2>
+                  <p><strong>Role:</strong>Student 4</p><br>
+                  <p><strong>Contributions:</strong>User Profile and Sitemap (SVG) .</p>
+                </div>
+              </div>
+            </main>    
+
+            <footer aria-label="Website Footer">
+            <div class="footer-container-glass">
+            <!-- Left: About Section -->
+            <div class="footer-column left-column">
+                <h3>About Climate Action</h3>
+                <p>
+                Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+                </p>
+                <div class="social-icons">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+                </div>
+            </div>
+            <!-- Center: Quick Links -->
+            <div class="footer-column center-column">
+                <h3>Quick Links</h3>
+                <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <!-- Right: Page Editors -->
+            <div class="footer-column right-column">
+                <h3>Page Editors</h3>
+                <ul>
+                <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+                <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+                <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+                <li>🌆  <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="footer-bottom">
+            <p>
+                ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+                🤝 User-Friendly for Everyone
+            </p>
+            <p class="footer-note">© 2025 Climate Action Initiative</p>
+            </div>
+      </footer>
+  </body>
+</html>

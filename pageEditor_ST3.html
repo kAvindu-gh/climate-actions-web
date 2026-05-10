@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Page Editor ST3</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      main.editor-main {
+        padding: 180px 30px 60px;
+        max-width: 1100px;
+        margin: auto;
+        background-color: #ffffffdd;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      }
+
+      .editor-main h1 {
+        text-align: center;
+        font-size: 2.7rem;
+        color: #17764a;
+        margin-bottom: 40px;
+        border-bottom: 3px solid #17764a;
+        padding-bottom: 10px;
+      }
+
+      .editor-nav {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .editor-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .editor-nav ul li a {
+        background: #c9f2e2;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        color: #0f3d2e;
+        transition: 0.3s;
+        text-decoration: none;
+      }
+
+      .editor-nav ul li a:hover {
+        background-color: #a2e5ca;
+        transform: scale(1.05);
+      }
+
+      section.editor-section {
+        background: #f5fdf8;
+        border-left: 6px solid #62c798;
+        border-radius: 12px;
+        padding: 25px 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #c96619;
+      }
+
+      section h3 {
+        color: #334035;
+        margin-top: 15px;
+      }
+
+      .editor-section code {
+        background-color: #e3fff3;
+        padding: 2px 6px;
+        border-radius: 5px;
+        color: #1d3f34;
+      }
+
+      .editor-section a {
+        color: #00795d;
+        text-decoration: none;
+      }
+
+      .editor-section a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Background Video -->
+      <video autoplay muted loop playsinline class="background-video">
+        <source src="https://www.istockphoto.com/resources/images/PhotoFTLP/P4-NOV-iStock-2165931620.jpg" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Navbar -->
+      <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student3/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <!-- Main Editor Content -->
+      <main class="editor-main">
+        <nav class="editor-nav">
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#description">Technical Details</a></li>
+            <li><a href="#challenges">Challenges</a></li>
+            <li><a href="#accessibility">Accessibility</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+            <li><a href="#references">References</a></li>
+          </ul>
+        </nav>
+
+        <h1>Page Editor</h1>
+
+        <section id="overview" class="editor-section">
+          <h2>Overview</h2>
+          <p><strong>Role:</strong> Student 3 </p>
+          <p><strong>Completed Pages:</strong></p>
+          <ul>
+            <li><a href="content_ST3.html" target="_blank">Sea Level Rise</a></li>
+            <li><a href="feedback.html" target="_blank">Feedback Form</a></li>
+            <li><a href="team.html" target="_blank">Team Page</a></li>
+            <li><a href="validation_ST3.html" target="_blank">Validation Page</a></li>
+          </ul>
+        </section>
+
+        <section id="description" class="editor-section">
+          <h2>Technical Details</h2>
+          <h3>Feedback Form</h3>
+          <p>Used semantic HTML, input types with <code>required</code> validation, and custom star rating via CSS.</p>
+          <h3>Sea Level Rise Page</h3>
+          <p>Included internal linking, smooth scrolling, floating "Go to top" button, and multi-section layout.</p>
+          <h3>Team Page</h3>
+          <p>Utilized flexbox and responsive design with alt text, hover animations, and interactive thumbnails.</p>
+        </section>
+
+        <section id="challenges" class="editor-section">
+          <h2>Challenges & Lessons</h2>
+          <p>Ensuring compatibility across devices using media queries, and creating a consistent visual identity were challenging yet rewarding.</p>
+        </section>
+
+        <section id="accessibility" class="editor-section">
+          <h2>Accessibility</h2>
+          <ul>
+            <li>Keyboard navigable</li>
+            <li>Proper heading structure</li>
+            <li>Accessible form inputs with labels</li>
+            <li>High contrast ratios</li>
+          </ul>
+        </section>
+
+        <section id="compliance" class="editor-section">
+          <h2>Compliance</h2>
+          <ul>
+            <li>W3C validated (HTML + CSS)</li>
+            <li>Free and credited assets</li>
+            <li>Meets University accessibility guidelines</li>
+          </ul>
+        </section>
+
+        <section id="references" class="editor-section">
+          <h2>References</h2>
+          <ul>
+            <li><a href="https://developer.mozilla.org/">MDN Web Docs</a></li>
+            <li><a href="https://validator.w3.org/">W3C HTML Validator</a></li>
+            <li><a href="https://coolors.co/">Coolors Color Palettes</a></li>
+            <li>Lectures & University Module Notes</li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+            <p>
+              Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+            </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+            🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

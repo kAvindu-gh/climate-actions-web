@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - Home</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+body {
+        background-image: url("background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+.internal-nav {
+  background-color: #e0f3ff;
+  padding: 12px 20px;
+  text-align: center;
+  position: sticky;
+  top: 100px; /* Adjusted to avoid overlap with the fixed header */
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 35px;
+  max-width: 700px;
+  margin: 30px auto;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.internal-nav a {
+  margin: 0 14px;
+  text-decoration: none;
+  color: #006994;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+  main {
+  margin-top: 30px;
+  padding: 30px;
+}
+
+
+
+
+.internal-nav a:hover {
+  background-color: #d1eaff;
+}
+
+      .section {
+        max-width: 900px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.8s ease-in-out;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section img {
+        max-width: 100%;
+        margin: 15px 0;
+        border-radius: 8px;
+        border: 2px solid #ddd;
+      }
+
+      .go-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #006994;
+        color: white;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 50%;
+        text-decoration: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        z-index: 2000;
+        cursor: pointer;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <video autoplay muted loop playsinline class="background-video">
+        <source src="https://www.istockphoto.com/resources/images/PhotoFTLP/P4-NOV-iStock-2165931620.jpg" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <header id="top">
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student3/logo.png" alt="Climate Action Logo" class="logo-img" />
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <main>
+        <div class="internal-nav">
+          <a href="#causes">Causes</a>
+          <a href="#impacts">Impacts</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#action">Take Action</a>
+        </div>
+
+        <section id="causes" class="section">
+          <h2>Causes of Sea Level Rise</h2>
+          <p>
+            Sea level rise is caused primarily by climate change. As global temperatures increase, glaciers and polar ice caps are melting, adding more water to the oceans. Another major factor is the thermal expansion of seawater — when water warms up, it expands in volume.
+          </p>
+          <p>
+            Human activities such as burning fossil fuels, deforestation, and industrialization increase greenhouse gas emissions, accelerating global warming. This causes ice sheets in Greenland and Antarctica to lose mass at alarming rates, significantly contributing to sea level rise.
+          </p>
+          <img src="images/student3/meltingglaciers.jpg" alt="Melting glacier due to climate change" />
+        </section>
+
+        <section id="impacts" class="section">
+          <h2>Impacts of Sea Level Rise</h2>
+          <p>
+            The effects of sea level rise are already being felt around the world. Coastal cities face more frequent flooding, especially during storms or high tides. Entire communities are at risk of being submerged, forcing people to relocate.
+          </p>
+          <p>
+            Rising seas also affect freshwater resources. Saltwater intrusion into rivers and groundwater supplies can harm agriculture and reduce access to drinking water. Additionally, ecosystems such as mangroves, wetlands, and coral reefs suffer from habitat loss.
+          </p>
+          <img src="images/student3/flood.jpg" alt="Flooded street showing the impact of sea level rise" />
+        </section>
+
+        <section id="solutions" class="section">
+          <h2>Solutions and Mitigation</h2>
+          <p>
+            Addressing sea level rise requires global cooperation. Reducing carbon emissions through renewable energy sources like wind, solar, and hydro power is key. Individuals can help by conserving energy, using public transport, and supporting sustainable practices.
+          </p>
+          <p>
+            Governments can invest in resilient infrastructure such as sea walls, elevated buildings, and improved drainage systems. Preserving coastal ecosystems like mangroves and coral reefs also acts as a natural defense against rising waters.
+          </p>
+          <img src="images/student3/turbines.jpg" alt="Wind turbines help reduce carbon emissions" />
+        </section>
+
+        <section id="action" class="section">
+          <h2>What You Can Do</h2>
+          <p>
+            Every individual has a role to play in the fight against climate change. You can reduce your carbon footprint by walking or cycling instead of driving, switching to LED bulbs, and using less water. Sharing knowledge and raising awareness in your community also makes a big difference.
+          </p>
+          <p>
+            Support policies and leaders who prioritize climate action. Participate in clean-up drives, plant trees, and advocate for renewable energy in your school or neighborhood. Together, we can slow down sea level rise and protect our planet.
+          </p>
+          <img src="images/student3/logo.jpg" alt="Climate Action logo" />
+        </section>
+
+        <a href="#top" class="go-top">↑</a>
+      </main>
+
+      <footer aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+            <p>
+              Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+            </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp; 🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const sections = document.querySelectorAll('.section');
+      window.addEventListener('scroll', () => {
+        const trigger = window.innerHeight * 0.85;
+        sections.forEach(sec => {
+          const top = sec.getBoundingClientRect().top;
+          if (top < trigger) sec.classList.add('visible');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Climate Action - Renewable Energy</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            
+            body {
+                background-image: url("images/student2/table.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            main {
+                margin-top: 10px;
+                padding: 10px;
+            }
+
+            .hero-video {
+                padding: 20px;
+                width: 100%;
+                border-radius: 30px;
+                display: block;
+                margin: auto;
+                pointer-events: none;
+                
+            }
+            /* Renewable Energy Page Specific Styles */
+            .energy-content {
+                background-color: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(5px);
+                border-radius: 20px;
+                padding: 40px;
+                margin-bottom: 40px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+            
+            /* Internal Navigation */
+            .internal-nav {
+                position: sticky;
+                top: 120px;
+                background: rgba(5, 99, 68, 0.9);
+                padding: 15px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                z-index: 100;
+            }
+            
+            .internal-nav ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .internal-nav a {
+                color: white;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 20px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+            
+            .internal-nav a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            /* Content Sections */
+            .energy-section {
+                margin-bottom: 50px;
+                scroll-margin-top: 150px;
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+            
+            .energy-section.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .energy-section h2 {
+                color: #056344;
+                font-size: 2rem;
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+            
+            .energy-section h2::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 430px;
+                height: 2px;
+                background-color: #c96519b9;
+            }
+            
+            .energy-section h3 {
+                color: #0f5132;
+                margin: 25px 0 15px;
+                font-size: 1.5rem;
+            }
+            
+            /* Image Grid */
+            .energy-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+                margin: 30px 0;
+            }
+            
+            .energy-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+            
+            .energy-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .energy-card:hover {
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+            
+            .energy-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-bottom: 3px solid #056344;
+                transition: transform 0.5s ease;
+            }
+            
+            .energy-card:hover img {
+                transform: scale(1.05);
+            }
+            
+            .energy-card-content {
+                padding: 20px;
+            }
+            
+            .energy-card h4 {
+                color: #056344;
+                margin-bottom: 10px;
+            }
+            
+            /* Statistics */
+            .energy-stats {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin: 40px 0;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                border-radius: 12px;
+                text-align: center;
+                flex: 1;
+                min-width: 200px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+            
+            .stat-item.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #c96619;
+                margin-bottom: 5px;
+            }
+            
+            /* Quote */
+            .energy-quote {
+                font-style: italic;
+                font-size: 1.2rem;
+                color: #333;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.9);
+                border-left: 4px solid #c96619;
+                margin: 40px 0;
+                border-radius: 8px;
+                position: relative;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+            }
+            
+            .energy-quote.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .energy-quote::before {
+                content: '"';
+                font-size: 4rem;
+                color: rgba(5, 99, 68, 0.1);
+                position: absolute;
+                top: 10px;
+                left: 20px;
+            }
+            
+            /* Benefits Grid */
+            .energy-benefits {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+                margin: 30px 0;
+            }
+            
+            .benefit-card {
+                background: rgba(255, 255, 255, 0.9);
+                padding: 25px;
+                border-radius: 20px;
+                border-left: 5px solid #c96619;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+                
+            }
+            
+            .benefit-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .benefit-card:hover {
+                transform: translateY(-5px) scale(1.02);
+            }
+            
+            .benefit-card h4 {
+                color: #0f5132;
+                margin-bottom: 15px;
+            }
+            
+            /* Go to Top Button */
+            .back-to-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background-color: #056344;
+                color: white;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                text-decoration: none;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: 0.3s ease;
+                z-index: 999;
+                }
+
+            .back-to-top:hover {
+                background-color: var(--primary-color);
+                transform: translateY(-3px);
+                }
+
+            
+            .go-top.visible {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            
+            .go-top:hover {
+                background-color: #0f5132;
+                transform: translateY(-5px);
+            }
+            
+            /* Beautiful Images Section */
+            .hero-image {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                border-radius: 12px;
+                margin: 30px 0;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+            
+            .hero-image.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            @media (max-width: 768px) {
+                .energy-content {
+                    padding: 20px;
+                }
+                
+                .energy-grid, .energy-benefits {
+                    grid-template-columns: 1fr;
+                }
+                
+                .energy-stats {
+                    flex-direction: column;
+                }
+                
+                .stat-item {
+                    min-width: 100%;
+                }
+                
+                .internal-nav {
+                    top: 100px;
+                }
+                
+                .internal-nav ul {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .hero-image {
+                    height: 250px;
+                }
+            }
+        </style>
+    </head>
+    <body id="top">
+        <div class="wrapper">
+            <header>
+                <nav class="navbar-rounded">
+                    <div class="navbar-left">
+                        <img src="images/student2/logo.png" alt="Climate Action Logo" class="logo-img">
+                        <span class="navbar-title">Climate Action</span>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="table.html">Table</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="sitemap.html">Sitemap</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </nav>
+                <div class="navbar-backdrop"></div>
+            </header>
+
+            <main>
+                <div class="content-wrapper">
+                    <div class="energy-content">
+                        <!-- Internal Navigation -->
+                        <nav class="internal-nav" aria-label="Page navigation">
+                            <ul>
+                                <li><a href="#introduction">Introduction</a></li>
+                                <li><a href="#types">Energy Types</a></li>
+                                <li><a href="#benefits">Key Benefits</a></li>
+                                <li><a href="#action">Take Action</a></li>
+                            </ul>
+                        </nav>
+                        
+                        <!-- Introduction Section -->
+                        <section class="energy-section" id="introduction">
+                            <h2>1. Renewable Energy Solutions</h2>
+                            <p>Renewable energy comes from natural sources that are constantly replenished, such as sunlight, wind, water, geothermal heat, and biomass. Unlike fossil fuels, these energy sources produce little to no greenhouse gas emissions, making them essential in our fight against climate change.</p>
+                            <video autoplay muted loop playsinline class="hero-video" aria-label="Wind turbines spinning in a green field">
+                                <source src="images/student2/wind-turbines.mp4" type="video/mp4" class="hero-image">Your browser does not support the video tag.
+                            </video>
+
+                            
+                            <div class="energy-grid">
+                                <div class="energy-card">
+                                    <img src="images/student2/solarpower.jpg" alt="Solar panel farm with blue sky and clouds">
+                                    <div class="energy-card-content">
+                                        <h4>Solar Power</h4>
+                                        <p>Converting sunlight into clean, renewable electricity through photovoltaic panels that capture the sun's energy without emissions.</p>
+                                    </div>
+                                </div>
+                                <div class="energy-card">
+                                    <img src="images/student2/hydropower.jpg" alt="Hydroelectric dam with water flowing through turbines">
+                                    <div class="energy-card-content">
+                                        <h4>Hydropower</h4>
+                                        <p>Generating electricity from flowing water, one of the oldest and most reliable renewable energy sources worldwide.</p>
+                                    </div>
+                                </div>
+                                <div class="energy-card">
+                                    <img src="images/student2/geothermal.jpg" alt="Geothermal power plant with steam rising">
+                                    <div class="energy-card-content">
+                                        <h4>Geothermal</h4>
+                                        <p>Tapping into Earth's internal heat for clean power generation and direct heating applications.</p>
+                                    </div>
+                                </div>
+                                <div class="energy-card">
+                                    <img src="images/student2/biomass.jpg" alt="Biomass power plant with sustainable fuel sources">
+                                    <div class="energy-card-content">
+                                        <h4>Biomass</h4>
+                                        <p>Converting organic materials into clean energy while maintaining carbon neutrality through sustainable practices.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="energy-quote">
+                                "The transition to clean energy is about more than just replacing one source of power with another. It's about transforming our entire energy system to make it more sustainable, equitable, and resilient for future generations."
+                            </div>
+                        </section>
+                        
+                        <!-- Types Section -->
+                        <section class="energy-section" id="types">
+                            <h2>2. Types of Renewable Energy</h2>
+                            <p>There are several major types of renewable energy technologies, each with unique advantages and applications in the global energy transition:</p>
+                            <video autoplay muted loop playsinline class="hero-video" aria-label="Wind turbines spinning in a green field">
+                                <source src="images/student2/hydropower-2.mp4" type="video/mp4" class="hero-image">Your browser does not support the video tag.
+                            </video>
+                            
+                            <h3>Solar Energy</h3>
+                            <p>Solar power converts sunlight into electricity using photovoltaic (PV) panels or through mirrors that concentrate solar radiation. Modern solar farms can generate massive amounts of clean electricity while rooftop solar empowers individual homeowners to produce their own power.</p>
+                            
+                            <h3>Wind Energy</h3>
+                            <p>From single turbines to massive offshore wind farms, wind energy has become one of the fastest-growing renewable sources. Modern turbines are engineering marvels, with some standing taller than the Statue of Liberty and capable of powering thousands of homes.</p>
+                            
+                            <img src="images/student2/wind-energy2.jpg" alt="Offshore wind farm at sunset" class="hero-image">
+                            
+                            <h3>Hydropower</h3>
+                            <p>Hydropower remains the largest source of renewable electricity worldwide. Modern projects focus on minimizing environmental impact while providing reliable baseload power and valuable energy storage through pumped hydro systems.</p>
+                            
+                            <h3>Geothermal Energy</h3>
+                            <p>Geothermal plants tap into the Earth's immense heat, offering constant renewable energy regardless of weather conditions. New enhanced geothermal systems promise to expand potential locations for this clean energy source.</p>
+                            
+                            <img src="images/student2/geothermal-2.jpg" alt="Wind turbines in golden hour light" class="hero-image">
+                        </section>
+                        
+                        <!-- Benefits Section -->
+                        <section class="energy-section" id="benefits">
+                            <h2>3. Benefits of Renewable Energy</h2>
+                            <p>Transitioning to renewable energy offers numerous environmental, economic, and social benefits that support sustainable development and climate action:</p>
+                            <video autoplay muted loop playsinline class="hero-video" aria-label="Wind turbines spinning in a green field">
+                                <source src="images/student2/benefitsof-renewable.mp4" type="video/mp4" class="hero-image">Your browser does not support the video tag.
+                            </video>
+                            
+                            <div class="energy-benefits">
+                                <div class="benefit-card">
+                                    <img src="images/student2/climate-mitigation.jpg" width="280" height="400" alt="Clean air in a green city">
+                                    <h4>Climate Change Mitigation</h4>
+                                    <p>Renewables produce little to no greenhouse gas emissions during operation, helping to reduce the carbon footprint of energy production and combat climate change. Widespread adoption could help limit global warming to 1.5°C.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" width="280" height="400" alt="Healthy children playing outdoors">
+                                    <h4>Improved Public Health</h4>
+                                    <p>By reducing air and water pollution from fossil fuels, renewable energy leads to cleaner air and fewer respiratory illnesses, potentially saving millions in healthcare costs annually and improving quality of life.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="images/student2/energy-security.jpg" width="280" height="400" alt="Global renewable energy connections">
+                                    <h4>Energy Security</h4>
+                                    <p>Renewables reduce dependence on imported fuels, enhancing national energy independence and protecting against price volatility in global fuel markets. Local energy production creates more resilient communities.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="images/student2/economic-growth.jpg" width="280" height="400" alt="Renewable energy workers">
+                                    <h4>Economic Growth</h4>
+                                    <p>The renewable energy sector creates more jobs per unit of electricity generated than fossil fuels, driving local economic development. The sector employed 11.5 million people worldwide in 2019.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" width="280" height="400" alt="Solar panels in rural village">
+                                    <h4>Energy Access</h4>
+                                    <p>Renewables can provide affordable electricity to remote communities without access to traditional power grids, improving quality of life and enabling economic opportunities in developing regions.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="images/student2/sustainable-development.jpg" width="280" height="400" alt="Sustainable city development">
+                                    <h4>Sustainable Development</h4>
+                                    <p>Renewable energy supports multiple SDGs beyond climate action, including affordable clean energy (SDG 7), decent work (SDG 8), sustainable cities (SDG 11), and responsible consumption (SDG 12).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="energy-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">29%</div>
+                                    <div class="stat-label">of global electricity from renewables (2020)</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">11.5M</div>
+                                    <div class="stat-label">jobs in renewable energy worldwide</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">90%</div>
+                                    <div class="stat-label">reduction in solar costs since 2009</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">50%</div>
+                                    <div class="stat-label">target renewable share by 2030 (Paris Agreement)</div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Action Section -->
+                        <section class="energy-section" id="action">
+                            <h2>4. How You Can Support Renewable Energy</h2>
+                            <p>Everyone has a role to play in advancing the renewable energy transition. Here are concrete ways you can contribute to this global movement:</p>
+                            <video autoplay muted loop playsinline class="hero-video" aria-label="Wind turbines spinning in a green field">
+                                <source src="images/student2/renewable-support.mp4" type="video/mp4" class="hero-image">Your browser does not support the video tag.
+                            </video>
+
+                            <div class="energy-benefits">
+                                <div class="benefit-card">
+                                    <img src="images/student2/green-power.jpg" width="280" height="400" alt="House with solar panels">
+                                    <h4>Choose Green Power</h4>
+                                    <p>Opt for renewable energy options from your utility provider or consider installing solar panels if possible. Many providers now offer green energy plans that support renewable development.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" width="280" height="400" alt="Energy efficient home">
+                                    <h4>Energy Efficiency</h4>
+                                    <p>Reduce your overall energy consumption through efficiency measures like LED lighting, smart thermostats, and energy-efficient appliances, making it easier to meet needs with renewables.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" width="280" height="400" alt="People at climate rally">
+                                    <h4>Advocate for Policy</h4>
+                                    <p>Support policies and candidates that promote renewable energy development at local, national, and global levels. Contact your representatives about clean energy initiatives.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" width="280" height="400" alt="Sustainable investing graph">
+                                    <h4>Invest Responsibly</h4>
+                                    <p>Consider divesting from fossil fuels and investing in renewable energy companies or green bonds. Many funds now focus exclusively on sustainable energy investments.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="images/student2/educate-others.jpg" width="280" height="400" alt="Teacher with students">
+                                    <h4>Educate Others</h4>
+                                    <p>Share information about renewable energy benefits and dispel common myths about reliability and costs. Knowledge is key to driving widespread adoption.</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <img src="images/student2/support-innovation.jpg" width="280" height="400" alt="High-tech energy lab">
+                                    <h4>Support Innovation</h4>
+                                    <p>Back crowdfunding campaigns or organizations developing breakthrough renewable technologies. The next generation of clean energy solutions needs support today.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="energy-quote">
+                                "The renewable energy transition isn't just about saving the planet - it's about creating a healthier, more equitable, and more prosperous world for all of us. Every action you take brings us closer to that future."
+                            </div>
+                            <video autoplay muted loop playsinline class="hero-video" aria-label="Wind turbines spinning in a green field">
+                                <source src="images/student2/renewable-about-final.mp4" type="video/mp4" class="hero-image">Your browser does not support the video tag.
+                            </video>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- Go to Top Button -->
+                <a href="#top" class="back-to-top" aria-label="Back to Top">↑</a>
+
+            </main>
+
+            <footer aria-label="Website Footer">
+                <div class="footer-container-glass">
+                    <!-- Left: About Section -->
+                    <div class="footer-column left-column">
+                        <h3>About Climate Action</h3>
+                        <p>
+                            Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+                        </p>
+                        <div class="social-icons">
+                        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter"></a>
+                        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram"></a>     
+                        </div>
+                    </div>
+                    <!-- Center: Quick Links -->
+                    <div class="footer-column center-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="volunteer.html">Volunteer</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                        </ul>
+                    </div>
+                    <!-- Right: Page Editors -->
+                    <div class="footer-column right-column">
+                        <h3>Page Editors</h3>
+                        <ul>
+                        <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+                        <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+                        <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+                        <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>
+                    ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+                    🤝 User-Friendly for Everyone
+                    </p>
+                    <p class="footer-note">© 2025 Climate Action Initiative</p>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Smooth scroll animation for elements
+            document.addEventListener('DOMContentLoaded', function() {
+                // Configure the Intersection Observer
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                // Callback function for observer
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Special animation for stats
+                            if (entry.target.classList.contains('stat-item')) {
+                                const statNumber = entry.target.querySelector('.stat-number');
+                                if (statNumber && !statNumber.dataset.animated) {
+                                    animateValue(statNumber, 0, parseInt(statNumber.textContent), 1000);
+                                    statNumber.dataset.animated = 'true';
+                                }
+                            }
+                        }
+                    });
+                };
+                
+                // Create the observer
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                
+                // Observe all elements with animation classes
+                document.querySelectorAll('.energy-section, .energy-card, .stat-item, .energy-quote, .benefit-card, .hero-image').forEach(el => {
+                    observer.observe(el);
+                });
+                
+                // Show/hide "go to top" button based on scroll position
+                const goTopButton = document.querySelector('.go-top');
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        goTopButton.classList.add('visible');
+                    } else {
+                        goTopButton.classList.remove('visible');
+                    }
+                });
+                
+                // Number animation function for statistics
+                function animateValue(element, start, end, duration) {
+                    let startTimestamp = null;
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        element.textContent = Math.floor(progress * (end - start) + start);
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    };
+                    window.requestAnimationFrame(step);
+                }
+                
+                // Smooth scrolling for internal links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 120,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Climate Action - validation_ST2</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+      
+      :root {
+            --primary-color: #536359;
+            --secondary-color: #333495;
+            --accent-color: #596671;
+            --light-bg: #f8f9fa;
+            --dark-text: #212529;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .wrapper{
+            margin: 150px;
+        }
+        
+        .validation {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .intro {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .validation-section {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .validation-result {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .validation-image {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .validation-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .reflection {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+        
+        .reflection h2 {
+            color: var(--secondary-color);
+        }
+        
+        .reflection ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .reflection li {
+            margin-bottom: 10px;
+        }
+        
+        
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    </head>
+    <body>
+      <div class="wrapper">
+
+      <header>
+        <nav class="navbar-rounded">
+          <div class="navbar-left">
+            <img src="images/student2/logo.png" alt="Climate Action Logo" class="logo-img">
+            <span class="navbar-title">Climate Action</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="table.html">Table</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </nav>
+        <div class="navbar-backdrop"></div>
+      </header>
+
+      <section class="validation">
+        <div class="container">
+            <h1>Website Validation Report</h1>
+            <p>Evidence of W3C Standards Compliance</p>
+        </div>
+      </section>
+    </div>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Validation Overview</h2>
+            <p>This page documents the validation process for all implemented pages in the project. Each section below includes screenshots from the W3C validator showing successful validation with no errors or warnings.</p>
+            <p>All pages have been thoroughly checked against HTML5 and CSS3 standards to ensure compliance with web best practices.</p>
+        </section>
+        
+        <section class="validation-section">
+            <h2>Home Page Validation</h2>
+            <p>The home page passed validation with no errors. The HTML structure is clean and follows web standards.</p>
+            
+            <div class="validation-result">
+                <div class="validation-image">
+                    <img src="images/student2/home-validation.png" alt="Home Page Validation Screenshot">
+                </div>
+            </div>
+        </section>
+        
+        <section class="validation-section">
+            <h2>Table Page Validation</h2>
+            <p>The table page validated successfully. All table elements and styling are properly implemented according to standards.</p>
+            
+            <div class="validation-result">
+                <div class="validation-image">
+                    <img src="images/student2/table-validation.png" alt="Table Page Validation Screenshot">
+                </div>
+            </div>
+        </section>
+        
+        <section class="validation-section">
+            <h2>Content Page Validation</h2>
+            <p>The renewable energy page shows perfect validation. The complex layout and styling passed all checks.</p>
+            
+            <div class="validation-result">
+                <div class="validation-image">
+                    <img src="images/student2/content-validation.png" alt="Content Page Validation Screenshot">
+                </div>
+            </div>
+        </section>
+        
+        <section class="validation-section">
+            <h2>CSS Validation</h2>
+            <p>All CSS stylesheets validated without errors, including custom properties and responsive design elements.</p>
+            
+            <div class="validation-result">
+                <div class="validation-image">
+                    <img src="images/student2/style-validation.png" alt="Global CSS Validation Screenshot">
+                </div>
+            </div>
+        </section>
+        
+        <section class="reflection">
+            <h2>Validation Reflection</h2>
+            <p>The validation process was insightful in ensuring my web pages adhere to current standards. While all pages passed validation, I noticed a few areas where the validator helped me improve:</p>
+            
+            <ul>
+                <li><strong>Syntax Consistency</strong>: I standardized my attribute quoting style (switching to double quotes consistently)</li>
+                <li><strong>CSS Property Validation</strong>: Caught some experimental properties that needed vendor prefixes</li>
+                <li><strong>Structural Improvements</strong>: The validator helped identify some redundant closing tags</li>
+            </ul>
+            
+            <p>The most challenging part was ensuring all ARIA attributes were properly implemented for accessibility while maintaining valid code. The validator was particularly helpful in catching these subtle issues.</p>
+            
+            <p>All pages now load faster and render more consistently across browsers thanks to this standards-compliant approach. The validation process has given me greater confidence in the quality and longevity of my code.</p>
+        </section>
+    </div>
+      </main>
+
+      <footer aria-label="Website Footer">
+        <div class="footer-container-glass">
+          <!-- Left: About Section -->
+          <div class="footer-column left-column">
+            <h3>About Climate Action</h3>
+            <p>
+              Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
+            </p>
+            <div class="social-icons">
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
+              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
+            </div>
+          </div>
+          <!-- Center: Quick Links -->
+          <div class="footer-column center-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="profile.html">Profile</a></li>
+              <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+          </div>
+          <!-- Right: Page Editors -->
+          <div class="footer-column right-column">
+            <h3>Page Editors</h3>
+            <ul>
+              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
+            🤝 User-Friendly for Everyone
+          </p>
+          <p class="footer-note">© 2025 Climate Action Initiative</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

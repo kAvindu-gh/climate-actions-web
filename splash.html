@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="refresh" content="6; url=home.html" />
+  <title>Climate Action</title>
+  <link rel="stylesheet" href="style1.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000000;
+      color: #c0c0c0;
+      height: 100vh;
+      overflow: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.light {
+      background: #f0f0f0;
+      color: #111;
+    }
+
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: -1;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      filter: brightness(0.8);
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 1.2s ease;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    body.light .content {
+      background-color: rgba(255, 255, 255, 0.5);
+      text-shadow: none;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #00ffcc;
+    }
+
+    body.light h1 {
+      color: #007777;
+    }
+
+    h1 img {
+      height: 60px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    body.light p {
+      color: #222;
+    }
+
+    .loader {
+      border: 6px solid #ccc;
+      border-top: 6px solid #00ffcc;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto 0;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .start-btn {
+      margin-top: 20px;
+      background: linear-gradient(to right, #00ffcc, #0077ff);
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0, 255, 204, 0.6);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      z-index: 2;
+    }
+
+    body.light .toggle-mode {
+      background: #003366;
+      color: #fff;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .toggle-mode {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-mode" onclick="toggleMode()">Toggle Mode</button>
+
+  <div class="slideshow">
+    <img src="images/student1/moody-and-dark-landscape-4k-jt-1280x800.jpg" class="active" alt="Climate Image 1">
+    <img src="images/student1/R.jpeg" alt="Climate Image 2">
+    <img src="images/student1/rainbow_night_by_moldadorite_dfmk3rc-pre.jpg" alt="Climate Image 2">
+    <img src="images/student1/rainy-night-scene-with-blurry-building-background_1095915-115802.jpg" alt="Climate Image 2">
+  </div>
+
+  <div class="content">
+    <h1>
+      <img src="images/student1/logo.png" alt="Logo">
+      Climate Action starts with you.
+    </h1>
+
+    <p>Climate change is no longer a distant threat — it's a present crisis affecting lives, ecosystems, and economies around the globe.</p>
+    <p>Every degree matters. Every action counts. Let's unite for a sustainable future.</p>
+
+    <p><strong>Team Members:</strong><br>
+      1. Gnanarajah Vithushan<br>
+      2. Sinhara Lekam Namage Kavindu Chandupa Piyumakara<br>
+      3. Ravindu Nisal Rathnaweera<br>
+      4. Kanumul Deniya Liyanage Sanidu Harsha<br>
+      <div class="button-wrapper">
+        <a href="pageEditor_ST1.html" target="_blank" class="custom-button">Page Editor</a>
+      </div>
+    </p>
+
+    <div class="loader"></div>
+    <a href="home.html" class="start-btn">Start</a>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll(".slideshow img");
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 3000);
+
+    function toggleMode() {
+      document.body.classList.toggle("light");
+    }
+  </script>
+
+</body>
+</html>
