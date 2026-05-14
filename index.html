@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Climate Actions – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(10,15,10,0.95) 35%, rgba(10,15,10,0.5) 65%, rgba(10,15,10,0.15) 100%),
+    url('images/student2/hero-image.png') center/cover no-repeat;
+}
+/* On mobile darken fully so text is always readable */
+@media (max-width: 600px) {
+  .hero-bg {
+    background:
+      linear-gradient(rgba(50, 53, 50, 0.76), rgba(10,15,10,0.93)),
+      url('images/student2/hero-image.png') center/cover no-repeat;
+  }
+}
+
+.float-icon {
+  position: absolute; width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(30,50,30,0.75); border: 1px solid rgba(74,222,74,0.25);
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+  backdrop-filter: blur(6px); animation: floatY 4s ease-in-out infinite;
+}
+.float-icon:nth-child(1) { top: 18%; left: 52%; }
+.float-icon:nth-child(2) { top: 50%; left: 44%; animation-delay:.9s; }
+.float-icon:nth-child(3) { top: 20%; right: 10%; animation-delay:.4s; }
+.float-icon:nth-child(4) { bottom: 22%; left: 60%; animation-delay:1.4s; }
+@media (max-width: 768px) { .float-icon { display: none; } }
+
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 80px 40px 80px;
+  max-width: 600px;
+}
+
+.badge-row { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green-dim); color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  padding: 5px 12px; border-radius: 20px;
+}
+.badge-outline {
+  background: transparent; border: 1px solid var(--green); color: var(--green);
+  font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  padding: 5px 12px; border-radius: 20px;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 7vw, 68px);
+  font-weight: 900; line-height: 1.06; color: #fff; margin-bottom: 20px;
+}
+.hero-headline .accent { color: var(--green); font-style: italic; }
+
+.hero-desc { font-size: 15px; color: #bdd4bd; line-height: 1.8; margin-bottom: 32px; }
+.hero-desc a { color: var(--green); }
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-btns .btn-primary  { font-size: 14px; padding: 13px 24px; }
+.hero-btns .btn-secondary { font-size: 14px; padding: 13px 24px; }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 14px; margin: 0 20px;
+  display: grid; grid-template-columns: repeat(4,1fr);
+}
+.stat-item {
+  padding: 20px 18px; display: flex; align-items: center; gap: 14px;
+  border-right: 1px solid var(--card-border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-icon { color: var(--green); flex-shrink: 0; }
+.stat-value { font-size: 24px; font-weight: 800; color: var(--green); line-height: 1; }
+.stat-label { font-size: 13px; font-weight: 600; color: #fff; margin-top: 2px; }
+.stat-sub   { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* ── TILES ── */
+.section-label {
+  padding: 28px 24px 12px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: var(--text-muted); text-transform: uppercase;
+}
+.tiles-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 16px; margin: 0 20px 16px;
+}
+.tile {
+  position: relative; border-radius: 14px; overflow: hidden;
+  height: 220px; cursor: pointer; text-decoration: none; display: block;
+  transition: transform .3s, box-shadow .3s;
+}
+.tile:hover { transform: scale(1.03); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+.tile img { width: 100%; height: 100%; object-fit: cover; transition: filter .3s; }
+.tile:hover img { filter: brightness(0.5); }
+.tile-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.75) 40%, rgba(0,0,0,.1) 100%);
+}
+.tile-green  .tile-overlay { background: linear-gradient(to top, rgba(10,60,20,.85)  40%, rgba(0,0,0,.1) 100%); }
+.tile-yellow .tile-overlay { background: linear-gradient(to top, rgba(80,50,5,.85)   40%, rgba(0,0,0,.1) 100%); }
+.tile-blue   .tile-overlay { background: linear-gradient(to top, rgba(5,40,60,.85)   40%, rgba(0,0,0,.1) 100%); }
+.tile-orange .tile-overlay { background: linear-gradient(to top, rgba(80,15,5,.85)   40%, rgba(0,0,0,.1) 100%); }
+.tile-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px; z-index: 2; }
+.tile-num  { font-size: 30px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.tile-green  .tile-num { color: #6aef6a; }
+.tile-yellow .tile-num { color: #fbbf24; }
+.tile-blue   .tile-num { color: #38bdf8; }
+.tile-orange .tile-num { color: #f87171; }
+.tile-name { font-size: 14px; font-weight: 700; color: #fff; }
+
+/* ── FEATURE CARDS ── */
+.features {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  margin: 0 20px 16px; background: var(--card-bg);
+  border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden;
+}
+.feat-card {
+  padding: 24px 20px; border-right: 1px solid var(--card-border);
+  transition: background .2s; cursor: pointer;
+}
+.feat-card:last-child { border-right: none; }
+.feat-card:hover { background: #111e11; }
+.feat-icon-wrap {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 2px solid var(--green-dim); background: rgba(22,163,74,.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 12px;
+}
+.feat-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 7px; }
+.feat-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+.feat-link  {
+  color: var(--green); font-size: 13px; font-weight: 600; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: gap .2s;
+}
+.feat-link:hover { gap: 10px; }
+
+/* ── QUOTE ── */
+.quote-section {
+  background: #0a110a; border: 1px solid var(--card-border);
+  border-radius: 14px; margin: 0 20px 32px;
+  padding: 28px 36px; display: flex;
+  justify-content: space-between; align-items: center;
+  overflow: hidden; position: relative;
+}
+.quote-text  { font-size: 15px; color: var(--green); font-style: italic; font-weight: 500; max-width: 520px; line-height: 1.7; }
+.quote-author { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+.quote-globe {
+  position: absolute; right: -30px; bottom: -30px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle at 40% 40%, #1a4a2a, #0a1a0a);
+  border-radius: 50%; border: 2px solid #1a3a2a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px; opacity: .65;
+}
+
+/* ════ RESPONSIVE — HOME SPECIFIC ════ */
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: repeat(2,1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(1),
+  .stat-item:nth-child(2) { border-bottom: 1px solid var(--card-border); }
+
+  .tiles-grid { grid-template-columns: repeat(2,1fr); }
+  .tile { height: 180px; }
+
+  .features { grid-template-columns: repeat(2,1fr); }
+  .feat-card:nth-child(2) { border-right: none; }
+  .feat-card:nth-child(1),
+  .feat-card:nth-child(2) { border-bottom: 1px solid var(--card-border); }
+  .feat-card:last-child   { border-right: none; }
+}
+
+@media (max-width: 600px) {
+  .hero-content { padding: 56px 20px 56px; }
+  .hero-headline { font-size: clamp(32px,9vw,48px); }
+  .hero-desc { font-size: 14px; }
+
+  .stats-bar { grid-template-columns: 1fr 1fr; margin: 0 12px; }
+  .stat-item { padding: 16px 12px; gap: 10px; }
+  .stat-value { font-size: 20px; }
+  .stat-label { font-size: 11px; }
+  .stat-sub   { display: none; }
+
+  .tiles-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 12px 12px; }
+  .tile { height: 150px; }
+  .tile-num  { font-size: 24px; }
+  .tile-name { font-size: 13px; }
+
+  .features { grid-template-columns: 1fr; margin: 0 12px 12px; }
+  .feat-card { border-right: none !important; border-bottom: 1px solid var(--card-border); }
+  .feat-card:last-child { border-bottom: none; }
+
+  .section-label { padding: 20px 14px 8px; }
+
+  .quote-section { margin: 0 12px 24px; padding: 22px 20px; }
+  .quote-text { font-size: 14px; }
+  .quote-globe { width: 90px; height: 90px; font-size: 42px; right: -20px; bottom: -20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav>
+  <a class="logo" href="home.html">
+    <div class="logo-icon">🌍</div>
+    <div class="logo-text">
+      <div class="brand">Climate <span>Actions</span></div>
+      <div class="tagline">Act Today. Protect Tomorrow.</div>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="home.html" class="active">Home</a></li>
+    <li><a href="volunteer.html">Volunteer</a></li>
+    <li><a href="table.html">Table</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+    <li><a href="sitemap.html">Sitemap</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+
+  <button class="btn-cta" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'})">
+    Take Action 🌿
+  </button>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="home.html" class="active">🏠 Home</a>
+  <a href="volunteer.html">🌿 Volunteer</a>
+  <a href="table.html">📊 Table</a>
+  <a href="profile.html">👤 Profile</a>
+  <a href="feedback.html">💬 Feedback</a>
+  <a href="sitemap.html">🗺 Sitemap</a>
+  <a href="team.html">👥 Team</a>
+</div>
+
+<main>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="float-icon">♻️</div>
+  <div class="float-icon">🌱</div>
+  <div class="float-icon">👥</div>
+  <div class="float-icon">⚡</div>
+
+  <div class="hero-content">
+    <div class="badge-row">
+      <span class="badge">👁 UN GOAL 13</span>
+      <span class="badge-outline">CLIMATE ACTION</span>
+    </div>
+    <h1 class="hero-headline">
+      The Climate Won't Change.<br>
+      <span class="accent">We Must.</span>
+    </h1>
+    <p class="hero-desc">
+      Climate change is real. But so is our power to create a better future.
+      Discover <a href="#">actions</a>, <a href="#">resources</a> and
+      <a href="#">communities</a> driving real change for our planet.
+    </p>
+    <div class="hero-btns">
+      <a href="volunteer.html" class="btn-primary">Take Action Now 🌿</a>
+      <button class="btn-secondary" onclick="document.querySelector('.tiles-grid').scrollIntoView({behavior:'smooth'})">Explore Topics →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    </div>
+    <div>
+      <div class="stat-value" data-target="10000">0</div>
+      <div class="stat-label">Active Climate Champions</div>
+      <div class="stat-sub">Making a difference every day</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+      </svg>
+    </div>
+    <div>
+      <div class="stat-value" data-target="250" data-suffix="+">0</div>
+      <div class="stat-label">Climate Actions</div>
+      <div class="stat-sub">Small steps. Big impact.</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    </div>
+    <div>
+      <div class="stat-value" data-target="50" data-suffix="+">0</div>
+      <div class="stat-label">Communities</div>
+      <div class="stat-sub">United for a sustainable future</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3"/>
+      </svg>
+    </div>
+    <div>
+      <div class="stat-value" data-target="1200000">0</div>
+      <div class="stat-label">CO₂ Reduced (kg)</div>
+      <div class="stat-sub">Through collective actions</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TOPIC TILES ═══════════ -->
+<div class="section-label">Explore Key Climate Topics</div>
+<div class="tiles-grid">
+  <a href="content_ST1.html" class="tile tile-green">
+    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop" alt="Deforestation" loading="lazy">
+    <div class="tile-overlay"></div>
+    <div class="tile-text">
+      <div class="tile-num">1</div>
+      <div class="tile-name">Deforestation</div>
+    </div>
+  </a>
+  <a href="content_ST2.html" class="tile tile-yellow">
+    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&auto=format&fit=crop" alt="Renewable Energy" loading="lazy">
+    <div class="tile-overlay"></div>
+    <div class="tile-text">
+      <div class="tile-num">2</div>
+      <div class="tile-name">Renewable Energy</div>
+    </div>
+  </a>
+  <a href="content_ST3.html" class="tile tile-blue">
+    <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&auto=format&fit=crop" alt="Sea Level Rise" loading="lazy">
+    <div class="tile-overlay"></div>
+    <div class="tile-text">
+      <div class="tile-num">3</div>
+      <div class="tile-name">Sea Level Rise</div>
+    </div>
+  </a>
+  <a href="content_ST4.html" class="tile tile-orange">
+    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&auto=format&fit=crop" alt="Urban Emission" loading="lazy">
+    <div class="tile-overlay"></div>
+    <div class="tile-text">
+      <div class="tile-num">4</div>
+      <div class="tile-name">Urban Emission</div>
+    </div>
+  </a>
+</div>
+
+<!-- ═══════════ FEATURE CARDS ═══════════ -->
+<div class="features">
+  <div class="feat-card">
+    <div class="feat-icon-wrap">🌿</div>
+    <div class="feat-title">Learn & Understand</div>
+    <div class="feat-desc">Explore climate topics, causes, effects and real-world solutions.</div>
+    <a href="#" class="feat-link">Learn More →</a>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon-wrap">🌱</div>
+    <div class="feat-title">Take Action</div>
+    <div class="feat-desc">Find meaningful actions you can take in your daily life.</div>
+    <a href="volunteer.html" class="feat-link">Get Started →</a>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon-wrap">👥</div>
+    <div class="feat-title">Join Community</div>
+    <div class="feat-desc">Connect with like-minded people and local climate initiatives.</div>
+    <a href="team.html" class="feat-link">Join Now →</a>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon-wrap">📊</div>
+    <div class="feat-title">Track Impact</div>
+    <div class="feat-desc">See your impact grow and inspire others to act.</div>
+    <a href="table.html" class="feat-link">View Impact →</a>
+  </div>
+</div>
+
+<!-- ═══════════ QUOTE ═══════════ -->
+<div class="quote-section">
+  <div>
+    <div class="quote-text">"The greatest threat to our planet is the belief that someone else will save it."</div>
+    <div class="quote-author">– Robert Swan</div>
+  </div>
+  <div class="quote-globe">🌍</div>
+</div>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer aria-label="Website Footer">
+  <div class="footer-container-glass">
+    <div class="footer-column">
+      <h3>About Climate Action</h3>
+      <p>Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Page Editors</h3>
+      <ul>
+        <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+        <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+        <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+        <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp; 🤝 User-Friendly for Everyone</p>
+    <p class="footer-note">© 2025 Climate Action Initiative</p>
+  </div>
+</footer>
+
+<script>
+/* ── HAMBURGER ── */
+const ham    = document.getElementById('hamburger');
+const drawer = document.getElementById('nav-drawer');
+ham.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  drawer.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  ham.classList.remove('open');
+  ham.setAttribute('aria-expanded', false);
+  document.body.style.overflow = '';
+}));
+
+/* ── STAT COUNTERS ── */
+function fmt(val, el) {
+  const s = el.dataset.suffix || '';
+  if (val >= 1000000) return (val/1000000).toFixed(1) + 'M' + s;
+  if (val >= 10000)   return Math.round(val/1000) + 'K+';
+  return val + s;
+}
+const counterEls = document.querySelectorAll('.stat-value[data-target]');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el  = e.target;
+    const end = parseInt(el.dataset.target);
+    let start = null;
+    const dur = 1800;
+    const step = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts-start)/dur, 1);
+      const ease = 1 - Math.pow(1-p, 4);
+      el.textContent = fmt(Math.round(ease*end), el);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(end, el);
+    };
+    requestAnimationFrame(step);
+    io.unobserve(el);
+  });
+}, { threshold: 0.4 });
+counterEls.forEach(c => io.observe(c));
+</script>
+</body>
+</html>
