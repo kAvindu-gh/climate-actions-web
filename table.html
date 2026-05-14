@@ -1,305 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Climate Action - Table</title>
-    <link rel="stylesheet" href="style.css"/>
-    <style>
-      
-      body {
-        background-image: url("images/student2/table.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Climate Table – Climate Actions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
 
-      .table-wrapper {
-        padding: 100px;
-        text-align: center;
-      }
+/* ── PAGE HERO ── */
+.table-hero {
+  position: relative;
+  padding: 72px 40px 56px;
+  overflow: hidden;
+  text-align: center;
+}
+.table-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,15,10,0.88) 0%, rgba(10,15,10,0.97) 100%),
+    url('https://images.unsplash.com/photo-1569163139394-de4e5f43e5f5?w=1600&auto=format&fit=crop') center/cover no-repeat;
+}
+.table-hero-content { position: relative; z-index: 2; }
 
-      .table-heading {
-        font-size: 2.5rem;
-        color: #ffffff;
-        margin-bottom: 20px;
-        background-color: #047857;
-      }
+.page-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(74,222,74,.1); border: 1px solid rgba(74,222,74,.3);
+  color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; padding: 7px 18px; border-radius: 30px;
+  margin-bottom: 22px;
+  opacity: 0; animation: riseUp .7s ease forwards .2s;
+}
+.page-eyebrow span { width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
 
-      .table-header{
-        font-family: 'Segoe UI', sans-serif;
-      }
+.table-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 60px);
+  font-weight: 900; color: #fff; line-height: 1.08; margin-bottom: 14px;
+  opacity: 0; animation: riseUp .8s ease forwards .4s;
+}
+.table-hero h1 em { color: var(--green); font-style: italic; }
 
-      /* Climate Table */
-      .climate-table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: transparent;
-        box-shadow: 0 6px 25px rgba(13, 67, 31, 0.1);
-        border-radius: 20px;
-        overflow: hidden;
-        font-family: 'comic sans ms';
-      }
+.table-hero p {
+  font-size: 15px; color: var(--text-muted); max-width: 520px; margin: 0 auto;
+  line-height: 1.8;
+  opacity: 0; animation: riseUp .8s ease forwards .6s;
+}
 
-      /* Table headers */
-      .climate-table th {
-        background-color: #297443 ;
-        color: #ffffff;
-        padding: 12px;
-        font-size: 1rem;
-      }
+@keyframes riseUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-      /* Zebra rows */
-      .climate-table tr:nth-child(even) {
-        background-color: #ecfdf5;
-      }
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 0 40px; margin-bottom: 24px; justify-content: space-between;
+  opacity: 0; animation: riseUp .8s ease forwards .8s;
+}
+.filter-left  { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.filter-label { font-size: 12px; color: var(--text-muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.filter-btn {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  color: var(--text-muted); font-size: 12px; font-weight: 600;
+  padding: 7px 14px; border-radius: 20px; cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  font-family: 'Inter', sans-serif;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--green); color: var(--green); background: rgba(74,222,74,.06);
+}
 
-      .climate-table tr:nth-child(odd) {
-        background-color: #d1fae5;
-      }
+.search-wrap {
+  position: relative; flex-shrink: 0;
+}
+.search-wrap input {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 8px; padding: 8px 14px 8px 36px;
+  font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text);
+  outline: none; width: 200px;
+  transition: border-color .2s, width .3s;
+}
+.search-wrap input:focus { border-color: var(--green); width: 240px; }
+.search-wrap input::placeholder { color: var(--text-muted); }
+.search-icon {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none;
+}
 
-      /* Table cells */
-      .climate-table td {
-        padding: 12px;
-        text-align: center;
-        font-size: 0.95rem;
-        border: 1px solid #ccc;
-      }
+/* ── TABLE WRAPPER ── */
+.table-wrapper {
+  padding: 0 40px 60px;
+  opacity: 0; animation: riseUp .9s ease forwards 1s;
+}
 
-      /* Hover effect */
-      .climate-table tbody tr:hover {
-        background-color: #89e9a9;
-        cursor: pointer;
-        transition: 0.4s ease-in-out;
-      }
+.table-scroll {
+  width: 100%; overflow-x: auto;
+  border-radius: 16px; border: 1px solid var(--card-border);
+  /* smooth mobile scroll */
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll::-webkit-scrollbar { height: 6px; }
+.table-scroll::-webkit-scrollbar-track { background: var(--card-bg); }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+.table-scroll::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
 
-      /* Link styling */
-      .climate-table a {
-        text-decoration: underline;
-        color: #047857;
-        font-weight: bold;
-      }
+/* Mobile hint */
+.scroll-hint-mobile {
+  display: none;
+  align-items: center; gap: 8px;
+  font-size: 11px; color: var(--text-muted);
+  margin-bottom: 10px; letter-spacing: .04em;
+}
+@media (max-width: 900px) { .scroll-hint-mobile { display: flex; } }
 
-      .climate-table a:hover {
-        color: #f15e5e;
-        text-decoration: none ;
-      }
+.climate-table {
+  width: 100%; min-width: 860px;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  font-size: 13.5px;
+}
 
-      /* Fade-in animation for the table */
-      @keyframes fadeInDown {
-        0% {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+/* HEADER */
+.climate-table thead tr {
+  background: linear-gradient(135deg, #0d1f0d, #0a160a);
+  border-bottom: 2px solid var(--card-border);
+}
+.climate-table th {
+  padding: 18px 16px; text-align: center;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); white-space: nowrap;
+}
+.th-icon { font-size: 22px; display: block; margin-bottom: 6px; }
 
-      .page-content {
-        animation: fadeInDown 1s ease-in-out forwards;
-      }
+/* ROWS */
+.climate-table tbody tr {
+  border-bottom: 1px solid rgba(26,46,26,.5);
+  transition: background .2s, transform .2s;
+  cursor: default;
+}
+.climate-table tbody tr:last-child { border-bottom: none; }
+.climate-table tbody tr:nth-child(odd)  { background: rgba(13,26,13,.4); }
+.climate-table tbody tr:nth-child(even) { background: rgba(10,18,10,.3); }
+.climate-table tbody tr:hover {
+  background: rgba(74,222,74,.07) !important;
+  transform: scale(1.003);
+}
 
-       
-    </style>
-  </head>
-    
-  <body>
-    <div class="wrapper">
-      <header>
-        <nav class="navbar-rounded">
-          <div class="navbar-left">
-            <img src="images/student2/logo.png" alt="Climate Action Logo" class="logo-img">
-            <span class="navbar-title">Climate Action</span>
-          </div>
-          <ul class="nav-links">
-            <li><a href="home.html" class="active">Home</a></li>
-            <li><a href="volunteer.html">Volunteer</a></li>
-            <li><a href="table.html">Table</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-            <li><a href="team.html">Team</a></li>
-          </ul>
-        </nav>
-        <div class="navbar-backdrop"></div>
-      </header>
+.climate-table td {
+  padding: 14px 16px; text-align: center;
+  color: var(--text); vertical-align: middle;
+  line-height: 1.6;
+}
 
-      <main class="table-wrapper">
-        <div class="page-content">
-          <h2 class="table-heading">GLOBAL EFFORTS ON CLIMATE ACTION</h2>
-          <table class="climate-table" aria-label="Climate action data table across four focus areas">
-            <thead class="table-header">
-              <tr>
-                <th title="Country">
-                  <img src="images/student2/logo.png" alt="Country Icon" width="100"><br>Country
-                </th>
-                <th title="Deforestation Efforts">
-                  <img src="images/student2/deforestration-table-icon.png" alt="Deforestation Icon" width="100"><br>Deforestration
-                </th>
-                <th title="Renewable Energy Usage">
-                  <img src="images/student2/renewable-table-icon.png" alt="Renewable Energy Icon" width="100"><br>Renewable Energy
-                </th>
-                <th title="Sea Level Risk">
-                  <img src="images/student2/sea-level-table-icon.png" alt="Sea Level Rise Icon" width="100"><br>Sea Level Rise
-                </th>
-                <th title="Urban Emissions">
-                  <img src="images/student2/urban-emission-table-icon.png" alt="Urban Emissions Icon" width="100"><br>Urban Emissions
-                </th>
-                <th title="Climate Action Goal">
-                  <img src="images/student2/climate-action-target-table-icon.png" alt="Climate Target Icon" width="100"><br>Climate Target
-                </th>
-              </tr>
-            </thead>
+/* Country cell */
+.country-cell {
+  display: flex; align-items: center; gap: 10px;
+  justify-content: flex-start; white-space: nowrap; padding: 14px 20px;
+}
+.country-flag {
+  width: 38px; height: 28px; object-fit: cover;
+  border-radius: 4px; border: 1px solid var(--card-border); flex-shrink: 0;
+}
+.country-name { font-weight: 600; color: #fff; font-size: 13px; }
 
-            <tbody>
-              <tr>
-                <td>
-                  <img src="images/student2/lk.png" alt="Sri Lanka" title="Sri Lanka" width="50"><br>Sri Lanka</td>
-                <td>Forest Conservation Act 🌱 ✔️</td>
-                <td>53% Hydro & Solar ☀️</td>
-                <td>Island Nation Risk 🔺</td>
-                <td>Moderate Urban CO₂ 🟡</td>
-                <td><a href="https://www.climatechange.lk/">Local Action Plan</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/brazil.png" alt="Brazil" title="Brazil" width="50"><br>Brazil
-                </td>
-                <td>Amazon Reforestation 🌳 ✔️</td>
-                <td>65% Biofuels 🔋 ✔️</td>
-                <td>Medium Risk ⚠️</td>
-                <td>Improving 🚧</td>
-                <td rowspan="2"><a href="pages/content_ST1.html">Reduce Deforestation</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/india.png" alt="India" title="India" width="50"><br>India
-                </td>
-                <td>Tree Plantation Drives 🌱 ✔️</td>
-                <td>40% Solar ☀️ 🌿</td>
-                <td>High Risk 🔺</td>
-                <td>High Pollution ✖️</td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/norway.png" alt="Norway" title="Norway" width="50"><br>Norway
-                </td>
-                <td>Stable Forests 🌲 ✔️</td>
-                <td>98% Hydro ⚡ ✔️</td>
-                <td>Low Risk ✅</td>
-                <td>EV Policy Active 🚗 ✔️</td>
-                <td><a href="pages/content_ST2.html">Net-Zero 2050</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/usa.png" alt="USA" title="United States" width="50"><br>USA
-                </td>
-                <td>Monitoring Only 👁️</td>
-                <td>20% Mixed ✖️</td>
-                <td>Medium Risk ⚠️</td>
-                <td>High Urban CO₂ 🔴</td>
-                <td><a href="pages/content_ST3.html">Paris Agreement</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/germany.png" alt="Germany" title="Germany" width="50"><br>Germany
-                </td>
-                <td>Forest Regulation 🌲 ✔️</td>
-                <td>46% Wind & Solar 🌬️ ✔️</td>
-                <td>Low Risk ✅</td>
-                <td>EV Zones in Cities 🟢</td>
-                <td>80% clean by 2030</td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/kenya.png" alt="Kenya" title="Kenya" width="50"><br>Kenya
-                </td>
-                <td>Tree Cover Restoration 🌿 ✔️</td>
-                <td>75% Geothermal 🔥 ✔️</td>
-                <td>Low Risk ✅</td>
-                <td>Low Emissions 🟢</td>
-                <td><a href="pages/content_ST4.html">Green Vision 2030</a></td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/iceland.png" alt="Iceland" title="Iceland" width="50"><br>Iceland
-                </td>
-                <td>Natural Stability ❄️</td>
-                <td>100% Hydro & Geo ⚡ ✔️</td>
-                <td>Minimal Risk 🌊</td>
-                <td>Clean Grid 🧊</td>
-                <td>Climate Neutral Leader</td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/canada.png" alt="Canada" title="Canada" width="50"><br>Canada
-                </td>
-                <td>Boreal Forest Preservation 🌲 ✔️</td>
-                <td>63% Hydro Power ⚡</td>
-                <td>Melting Glaciers ⚠️</td>
-                <td>Urban Transition Plans 🛠️</td>
-                <td>Carbon Neutral 2050</td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="images/student2/newzealand.png" alt="New Zealand" title="New Zealand" width="50"><br>New Zealand
-                </td>
-                <td>Native Forest Recovery 🌳</td>
-                <td>84% Renewables 🔋</td>
-                <td>Coastal Flood Risk 🌊</td>
-                <td>Green Transport 🚉</td>
-                <td>Net-Zero Emissions</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </main>
+/* Status badges */
+.status {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; white-space: nowrap;
+}
+.status-good    { background: rgba(74,222,74,.12);  color: #6aef6a;  border: 1px solid rgba(74,222,74,.25); }
+.status-warn    { background: rgba(251,191,36,.12); color: #fbbf24;  border: 1px solid rgba(251,191,36,.25); }
+.status-bad     { background: rgba(248,113,113,.12);color: #f87171;  border: 1px solid rgba(248,113,113,.25); }
+.status-blue    { background: rgba(56,189,248,.12); color: #38bdf8;  border: 1px solid rgba(56,189,248,.25); }
+.status-neutral { background: rgba(148,163,184,.1); color: #94a3b8;  border: 1px solid rgba(148,163,184,.2); }
 
-      <footer aria-label="Website Footer">
-        <div class="footer-container-glass">
-          <!-- Left: About Section -->
-          <div class="footer-column left-column">
-            <h3>About Climate Action</h3>
-              <p>
-                Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.
-              </p>
-            <div class="social-icons">
-              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook" /></a>
-              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter" /></a>
-              <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram" /></a>
-            </div>
-          </div>
-          <!-- Center: Quick Links -->
-          <div class="footer-column center-column">
-            <h3>Quick Links</h3>
-              <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-              </ul>
-          </div>
-          <!-- Right: Page Editors -->
-          <div class="footer-column right-column">
-            <h3>Page Editors</h3>
-            <ul>
-              <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
-              <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
-              <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
-              <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            ✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp;
-            🤝 User-Friendly for Everyone
-          </p>
-          <p class="footer-note">© 2025 Climate Action Initiative</p>
-        </div>
-      </footer>
+/* Table links */
+.climate-table a {
+  color: var(--green); font-weight: 600; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  transition: color .2s, gap .2s;
+}
+.climate-table a:hover { color: #6aef6a; gap: 8px; text-decoration: underline; }
+
+/* Rowspan cells */
+.rowspan-cell { vertical-align: middle; }
+
+/* ── SUMMARY CARDS ── */
+.summary-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; margin: 0 40px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden;
+  opacity: 0; animation: riseUp .9s ease forwards .85s;
+}
+.sum-item {
+  padding: 20px 18px; text-align: center;
+  border-right: 1px solid var(--card-border);
+}
+.sum-item:last-child { border-right: none; }
+.sum-icon  { font-size: 24px; margin-bottom: 8px; }
+.sum-val   { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--green); line-height: 1; }
+.sum-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .table-hero { padding: 56px 24px 44px; }
+  .filter-bar   { padding: 0 20px; gap: 10px; }
+  .table-wrapper{ padding: 0 20px 48px; }
+  .summary-strip{ margin: 0 20px 20px; grid-template-columns: repeat(2,1fr); }
+  .sum-item:nth-child(2) { border-right: none; }
+  .sum-item:nth-child(1),
+  .sum-item:nth-child(2) { border-bottom: 1px solid var(--card-border); }
+}
+
+@media (max-width: 600px) {
+  .table-hero  { padding: 48px 16px 36px; }
+  .filter-bar  { padding: 0 16px; flex-direction: column; align-items: flex-start; }
+  .search-wrap input { width: 100%; }
+  .search-wrap input:focus { width: 100%; }
+  .search-wrap { width: 100%; }
+  .table-wrapper { padding: 0 16px 40px; }
+  .summary-strip { margin: 0 16px 18px; grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav>
+  <a class="logo" href="home.html">
+    <div class="logo-icon">🌍</div>
+    <div class="logo-text">
+      <div class="brand">Climate <span>Actions</span></div>
+      <div class="tagline">Act Today. Protect Tomorrow.</div>
     </div>
-  </body>
+  </a>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="volunteer.html">Volunteer</a></li>
+    <li><a href="table.html" class="active">Table</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="feedback.html">Feedback</a></li>
+    <li><a href="sitemap.html">Sitemap</a></li>
+    <li><a href="team.html">Team</a></li>
+  </ul>
+  <button class="btn-cta" onclick="window.location.href='volunteer.html'">Take Action 🌿</button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="home.html">🏠 Home</a>
+  <a href="volunteer.html">🌿 Volunteer</a>
+  <a href="table.html" class="active">📊 Table</a>
+  <a href="profile.html">👤 Profile</a>
+  <a href="feedback.html">💬 Feedback</a>
+  <a href="sitemap.html">🗺 Sitemap</a>
+  <a href="team.html">👥 Team</a>
+</div>
+
+<main>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="table-hero">
+  <div class="table-hero-bg"></div>
+  <div class="table-hero-content">
+    <div class="page-eyebrow"><span></span> UN SDG 13 · Global Data</div>
+    <h1>Global Efforts on<br><em>Climate Action</em></h1>
+    <p>A comparative overview of how nations are tackling deforestation, transitioning to renewables, managing rising seas, and reducing urban emissions.</p>
+  </div>
+</div>
+
+<!-- ═══════════ SUMMARY CARDS ═══════════ -->
+<div class="summary-strip">
+  <div class="sum-item"><div class="sum-icon">🌍</div><div class="sum-val">10</div><div class="sum-label">Countries Tracked</div></div>
+  <div class="sum-item"><div class="sum-icon">⚡</div><div class="sum-val">100%</div><div class="sum-label">Best Renewable Rate (Iceland)</div></div>
+  <div class="sum-item"><div class="sum-icon">🌳</div><div class="sum-val">8/10</div><div class="sum-label">Countries with Forest Plans</div></div>
+  <div class="sum-item"><div class="sum-icon">🌊</div><div class="sum-val">3/10</div><div class="sum-label">Countries at High Sea Risk</div></div>
+</div>
+
+<!-- ═══════════ FILTER BAR ═══════════ -->
+<div class="filter-bar">
+  <div class="filter-left">
+    <span class="filter-label">Filter by risk:</span>
+    <button class="filter-btn active" data-filter="all">All Countries</button>
+    <button class="filter-btn" data-filter="low">✅ Low Risk</button>
+    <button class="filter-btn" data-filter="med">⚠️ Medium Risk</button>
+    <button class="filter-btn" data-filter="high">🔺 High Risk</button>
+  </div>
+  <div class="search-wrap">
+    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" placeholder="Search country…">
+  </div>
+</div>
+
+<!-- ═══════════ TABLE ═══════════ -->
+<div class="table-wrapper">
+  <div class="scroll-hint-mobile">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Scroll sideways to see all columns
+  </div>
+  <div class="table-scroll">
+    <table class="climate-table" aria-label="Global climate action data across key focus areas">
+      <thead>
+        <tr>
+          <th><span class="th-icon">🌍</span>Country</th>
+          <th><span class="th-icon">🌳</span>Deforestation</th>
+          <th><span class="th-icon">⚡</span>Renewable Energy</th>
+          <th><span class="th-icon">🌊</span>Sea Level Risk</th>
+          <th><span class="th-icon">🏙</span>Urban Emissions</th>
+          <th><span class="th-icon">🎯</span>Climate Target</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+
+        <tr data-risk="high" data-country="sri lanka">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/lk.png" alt="Sri Lanka">
+            <span class="country-name">Sri Lanka</span>
+          </div></td>
+          <td><span class="status status-good">🌱 Forest Conservation Act ✔️</span></td>
+          <td><span class="status status-good">☀️ 53% Hydro &amp; Solar</span></td>
+          <td><span class="status status-bad">🔺 Island Nation Risk</span></td>
+          <td><span class="status status-warn">🟡 Moderate Urban CO₂</span></td>
+          <td><a href="https://www.climatechange.lk/" target="_blank">Local Action Plan →</a></td>
+        </tr>
+
+        <tr data-risk="med" data-country="brazil">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/br.png" alt="Brazil">
+            <span class="country-name">Brazil</span>
+          </div></td>
+          <td><span class="status status-good">🌳 Amazon Reforestation ✔️</span></td>
+          <td><span class="status status-good">🔋 65% Biofuels ✔️</span></td>
+          <td><span class="status status-warn">⚠️ Medium Risk</span></td>
+          <td><span class="status status-warn">🚧 Improving</span></td>
+          <td rowspan="2" class="rowspan-cell"><a href="content_ST1.html">Reduce Deforestation →</a></td>
+        </tr>
+
+        <tr data-risk="high" data-country="india">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/in.png" alt="India">
+            <span class="country-name">India</span>
+          </div></td>
+          <td><span class="status status-good">🌱 Tree Plantation Drives ✔️</span></td>
+          <td><span class="status status-warn">☀️ 40% Solar</span></td>
+          <td><span class="status status-bad">🔺 High Risk</span></td>
+          <td><span class="status status-bad">✖️ High Pollution</span></td>
+        </tr>
+
+        <tr data-risk="low" data-country="norway">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/no.png" alt="Norway">
+            <span class="country-name">Norway</span>
+          </div></td>
+          <td><span class="status status-good">🌲 Stable Forests ✔️</span></td>
+          <td><span class="status status-good">⚡ 98% Hydro ✔️</span></td>
+          <td><span class="status status-good">✅ Low Risk</span></td>
+          <td><span class="status status-good">🚗 EV Policy Active ✔️</span></td>
+          <td><a href="content_ST2.html">Net-Zero 2050 →</a></td>
+        </tr>
+
+        <tr data-risk="med" data-country="usa united states">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/us.png" alt="USA">
+            <span class="country-name">USA</span>
+          </div></td>
+          <td><span class="status status-neutral">👁️ Monitoring Only</span></td>
+          <td><span class="status status-warn">🔋 20% Mixed</span></td>
+          <td><span class="status status-warn">⚠️ Medium Risk</span></td>
+          <td><span class="status status-bad">🔴 High Urban CO₂</span></td>
+          <td><a href="content_ST3.html">Paris Agreement →</a></td>
+        </tr>
+
+        <tr data-risk="low" data-country="germany">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/de.png" alt="Germany">
+            <span class="country-name">Germany</span>
+          </div></td>
+          <td><span class="status status-good">🌲 Forest Regulation ✔️</span></td>
+          <td><span class="status status-good">🌬️ 46% Wind &amp; Solar ✔️</span></td>
+          <td><span class="status status-good">✅ Low Risk</span></td>
+          <td><span class="status status-good">🟢 EV Zones in Cities</span></td>
+          <td>80% clean by 2030</td>
+        </tr>
+
+        <tr data-risk="low" data-country="kenya">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/ke.png" alt="Kenya">
+            <span class="country-name">Kenya</span>
+          </div></td>
+          <td><span class="status status-good">🌿 Tree Cover Restoration ✔️</span></td>
+          <td><span class="status status-good">🔥 75% Geothermal ✔️</span></td>
+          <td><span class="status status-good">✅ Low Risk</span></td>
+          <td><span class="status status-good">🟢 Low Emissions</span></td>
+          <td><a href="content_ST4.html">Green Vision 2030 →</a></td>
+        </tr>
+
+        <tr data-risk="low" data-country="iceland">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/is.png" alt="Iceland">
+            <span class="country-name">Iceland</span>
+          </div></td>
+          <td><span class="status status-blue">❄️ Natural Stability</span></td>
+          <td><span class="status status-good">⚡ 100% Hydro &amp; Geo ✔️</span></td>
+          <td><span class="status status-good">🌊 Minimal Risk</span></td>
+          <td><span class="status status-good">🧊 Clean Grid</span></td>
+          <td>Climate Neutral Leader</td>
+        </tr>
+
+        <tr data-risk="med" data-country="canada">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/ca.png" alt="Canada">
+            <span class="country-name">Canada</span>
+          </div></td>
+          <td><span class="status status-good">🌲 Boreal Preservation ✔️</span></td>
+          <td><span class="status status-good">⚡ 63% Hydro</span></td>
+          <td><span class="status status-warn">⚠️ Melting Glaciers</span></td>
+          <td><span class="status status-warn">🛠️ Urban Transition Plans</span></td>
+          <td>Carbon Neutral 2050</td>
+        </tr>
+
+        <tr data-risk="med" data-country="new zealand">
+          <td><div class="country-cell">
+            <img class="country-flag" src="https://flagcdn.com/w80/nz.png" alt="New Zealand">
+            <span class="country-name">New Zealand</span>
+          </div></td>
+          <td><span class="status status-good">🌳 Native Forest Recovery</span></td>
+          <td><span class="status status-good">🔋 84% Renewables</span></td>
+          <td><span class="status status-warn">🌊 Coastal Flood Risk</span></td>
+          <td><span class="status status-good">🚉 Green Transport</span></td>
+          <td>Net-Zero Emissions</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <p id="no-results" style="display:none;text-align:center;padding:40px;color:var(--text-muted);font-size:14px;">No countries match your filter. Try a different search.</p>
+</div>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer aria-label="Website Footer">
+  <div class="footer-container-glass">
+    <div class="footer-column">
+      <h3>About Climate Action</h3>
+      <p>Climate Action is a collaborative platform sharing insights, solutions, and awareness on climate-related issues to inspire change and support a greener future.</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/facebook-new.png" alt="Facebook"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/056344/instagram-new.png" alt="Instagram"></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Page Editors</h3>
+      <ul>
+        <li>🌱 <a href="pageEditor_ST1.html">Student 1 – Page Editor</a></li>
+        <li>🌞 <a href="pageEditor_ST2.html">Student 2 – Page Editor</a></li>
+        <li>🌊 <a href="pageEditor_ST3.html">Student 3 – Page Editor</a></li>
+        <li>🌆 <a href="pageEditor_ST4.html">Student 4 – Page Editor</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>✅ <a href="https://validator.w3.org/">HTML Validator</a> &nbsp;|&nbsp; 🤝 User-Friendly for Everyone</p>
+    <p class="footer-note">© 2025 Climate Action Initiative</p>
+  </div>
+</footer>
+
+<script>
+/* HAMBURGER */
+const ham=document.getElementById('hamburger'),dr=document.getElementById('nav-drawer');
+ham.addEventListener('click',()=>{
+  const o=dr.classList.toggle('open');
+  ham.classList.toggle('open',o);
+  ham.setAttribute('aria-expanded',o);
+  dr.setAttribute('aria-hidden',!o);
+  document.body.style.overflow=o?'hidden':'';
+});
+dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  dr.classList.remove('open');ham.classList.remove('open');
+  ham.setAttribute('aria-expanded',false);dr.setAttribute('aria-hidden',true);
+  document.body.style.overflow='';
+}));
+
+/* ROW ANIMATION ON LOAD */
+document.querySelectorAll('.climate-table tbody tr').forEach((row, i) => {
+  row.style.opacity = '0';
+  row.style.transform = 'translateX(-16px)';
+  setTimeout(() => {
+    row.style.transition = 'opacity .4s ease, transform .4s ease';
+    row.style.opacity = '1';
+    row.style.transform = 'translateX(0)';
+  }, 900 + i * 80);
+});
+
+/* FILTER BUTTONS */
+const rows   = Array.from(document.querySelectorAll('#table-body tr'));
+const noRes  = document.getElementById('no-results');
+let currentFilter = 'all';
+let currentSearch  = '';
+
+function applyFilters() {
+  let visible = 0;
+  rows.forEach(row => {
+    const risk    = row.dataset.risk || '';
+    const country = (row.dataset.country || '').toLowerCase();
+    const matchF  = currentFilter === 'all' ||
+                    (currentFilter === 'low'  && risk === 'low')  ||
+                    (currentFilter === 'med'  && risk === 'med')  ||
+                    (currentFilter === 'high' && risk === 'high');
+    const matchS  = country.includes(currentSearch);
+    const show    = matchF && matchS;
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  noRes.style.display = visible === 0 ? 'block' : 'none';
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('search-input').addEventListener('input', e => {
+  currentSearch = e.target.value.trim().toLowerCase();
+  applyFilters();
+});
+
+/* ROW CLICK — subtle highlight */
+rows.forEach(row => {
+  row.addEventListener('click', () => {
+    rows.forEach(r => r.style.boxShadow = '');
+    row.style.boxShadow = 'inset 0 0 0 1px rgba(74,222,74,.35)';
+  });
+});
+</script>
+</body>
 </html>
